@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">FoodPie</string>
+    <string name="food_bai_ke">食物百科</string>
+    <string name="browser_food">逛吃</string>
+    <string name="my">我的</string>
+
+
+    <string name="my_photo">我的照片</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="my_upload_data">上传食物数据</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_login">点击登录</string>
+    <string name="qq">QQ</string>
+    <string name="wei_xin">微信</string>
+    <string name="wei_bo">微博</string>
+    <string name="bo_he">薄荷</string>
+    <string name="login">登录</string>
+    <string name="setting">设置</string>
+    <string name="version">食物派版本号: V2.6</string>
+    <string name="share">将食物派分享给朋友</string>
+    <string name="measure_score">评个分吧</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="suggest">给我们提个建议</string>
+</resources>

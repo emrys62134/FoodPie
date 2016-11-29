@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        style="@style/WidthHeightHorizontal"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_marginLeft="@dimen/ten"
+            style="@style/WidthAndHeightWrap"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_back_dark_center"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/ten"
+            style="@style/WidthAndHeightWrap"
+            android:text="@string/setting"
+            android:textSize="@dimen/eighteen"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height"
+        android:background="@color/line"/>
+
+    <!--清除缓存-->
+    <LinearLayout
+        style="@style/WidthHeightHorizontal">
+
+        <TextView
+            style="@style/WidthZeroAndWightOne"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_cache"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            style="@style/WidthAndHeightWrap"
+            android:src="@mipmap/ic_arrow_right_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/ten"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginRight="@dimen/ten"
+        android:layout_height="@dimen/view_height"
+        android:background="@color/line"/>
+
+    <!--给我们个建议-->
+
+    <LinearLayout
+        style="@style/WidthHeightHorizontal">
+
+        <TextView
+            style="@style/WidthZeroAndWightOne"
+            android:layout_height="wrap_content"
+            android:text="@string/suggest"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            style="@style/WidthAndHeightWrap"
+            android:src="@mipmap/ic_arrow_right_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/ten"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginRight="@dimen/ten"
+        android:layout_height="@dimen/view_height"
+        android:background="@color/line"/>
+
+    <!--评个分吧-->
+
+    <LinearLayout
+        style="@style/WidthHeightHorizontal">
+
+        <TextView
+            style="@style/WidthZeroAndWightOne"
+            android:layout_height="wrap_content"
+            android:text="@string/measure_score"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            style="@style/WidthAndHeightWrap"
+            android:src="@mipmap/ic_arrow_right_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/ten"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginRight="@dimen/ten"
+        android:layout_height="@dimen/view_height"
+        android:background="@color/line"/>
+
+    <!--将食物派分享给朋友-->
+
+    <LinearLayout
+        style="@style/WidthHeightHorizontal">
+
+        <TextView
+            style="@style/WidthZeroAndWightOne"
+            android:layout_height="wrap_content"
+            android:text="@string/share"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            style="@style/WidthAndHeightWrap"
+            android:src="@mipmap/ic_arrow_right_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/ten"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/ten"
+        android:layout_marginRight="@dimen/ten"
+        android:layout_height="@dimen/view_height"
+        android:background="@color/line"/>
+
+    <TextView
+        style="@style/WidthAndHeightWrap"
+        android:text="@string/version"
+        android:layout_marginTop="@dimen/ten"
+        android:textSize="@dimen/twelve"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:id="@+id/drawer_layout">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_hundred"
+        android:background="@mipmap/img_my_bg">
+
+        <TextView
+            style="@style/WidthAndHeightWrap"
+            android:layout_marginTop="@dimen/ten"
+            android:text="@string/my"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/material_user"
+            style="@style/WidthAndHeightWrap"
+            android:layout_below="@+id/icon_my"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/login_btn"
+            style="@style/WidthAndHeightWrap"
+            android:layout_below="@id/material_user"
+            android:layout_centerHorizontal="true"
+            android:text="@string/my_login"
+            android:textColor="@color/my_button_line"
+            android:layout_marginBottom="@dimen/ten"
+            android:background="@drawable/my_button_shape"/>
+
+        <ImageButton
+            android:id="@+id/setting_my"
+            android:background="@color/color_my_material"
+            android:layout_width="@dimen/eighteen"
+            android:layout_height="@dimen/eighteen"
+            android:src="@mipmap/my_setting_icon"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:layout_margin="@dimen/ten" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/icon_my"
+            android:layout_width="@dimen/seventy"
+            android:layout_height="@dimen/seventy"
+            android:src="@mipmap/my_icon"
+            android:background="@color/color_my_material"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>

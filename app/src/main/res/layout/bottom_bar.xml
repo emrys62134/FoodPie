@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_background"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/BottomBar"
+            android:layout_height="wrap_content"
+            android:text="@string/food_bai_ke"
+            android:checked="true"
+            android:drawableTop="@drawable/food_bai_ke_icon"
+            android:id="@+id/rb_food_bai_ke"
+            android:textColor="@color/color_radio_button"
+            />
+
+        <RadioButton
+            style="@style/BottomBar"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/browser_food_icon"
+            android:text="@string/browser_food"
+            android:id="@+id/rb_browser"
+            android:textColor="@color/color_radio_button"
+            />
+
+        <RadioButton
+            style="@style/BottomBar"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/my_icon"
+            android:text="@string/my"
+            android:id="@+id/rb_my"
+            android:textColor="@color/color_radio_button"
+            />
+    </RadioGroup>
+
+</LinearLayout>

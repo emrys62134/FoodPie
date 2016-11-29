@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--逛吃标题-->
+    <color name="color_title">#fafafa</color>
+
+    <!--radioButton-->
+    <color name="color_normal">#000000</color>
+    <color name="color_pressed">#bb1c11</color>
+
+    <!--我的界面-->
+    <color name="color_my_material">#ee9353</color>
+    <color name="view_background">#10100f</color>
+    <color name="my_color_frame">#f4f4ec</color>
+    <color name="my_arrow_background">#fafafa</color>
+    <color name="my_button_line">#ffffff</color>
+    <color name="line">#bab7b7</color>
+
+</resources>
+
+

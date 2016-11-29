@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/my_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_hundred" />
+
+    <!--我的照片-->
+    <RelativeLayout style="@style/My"
+        android:id="@+id/rl_photo">
+
+        <ImageButton
+            android:id="@+id/my_photo"
+            style="@style/MyList"
+            android:background="@color/color_title"
+            android:src="@mipmap/ic_my_photo" />
+
+        <TextView
+            style="@style/MyListTextView"
+            android:layout_toRightOf="@id/my_photo"
+            android:text="@string/my_photo" />
+
+        <ImageButton style="@style/MyListArrow" />
+    </RelativeLayout>
+    <View style="@style/MyListViewLine" />
+
+    <!--我的收藏-->
+
+    <RelativeLayout style="@style/My"
+        android:id="@+id/rl_collection">
+
+        <ImageButton
+            android:id="@+id/my_collect"
+            style="@style/MyList"
+            android:background="@color/color_title"
+            android:src="@mipmap/ic_my_collect" />
+
+        <TextView
+            style="@style/MyListTextView"
+            android:layout_toRightOf="@id/my_collect"
+            android:text="@string/my_collection" />
+
+        <ImageButton style="@style/MyListArrow" />
+
+    </RelativeLayout>
+    <View style="@style/MyListViewLine" />
+
+
+    <!--上传食物数据-->
+    <RelativeLayout style="@style/My"
+        android:id="@+id/rl_upload">
+
+        <ImageButton
+            android:id="@+id/my_upload"
+            style="@style/MyList"
+            android:background="@color/color_title"
+            android:src="@mipmap/ic_my_upload" />
+
+        <TextView
+            style="@style/MyListTextView"
+            android:layout_toRightOf="@id/my_upload"
+            android:text="@string/my_upload_data" />
+
+        <ImageButton style="@style/MyListArrow" />
+
+    </RelativeLayout>
+    <View style="@style/MyListViewLine" />
+
+    <!--我的订单-->
+
+    <RelativeLayout style="@style/My"
+        android:id="@+id/rl_order">
+
+        <ImageButton
+            android:id="@+id/my_order"
+            style="@style/MyList"
+            android:background="@color/color_title"
+            android:src="@mipmap/ic_my_order" />
+
+        <TextView
+            style="@style/MyListTextView"
+            android:layout_toRightOf="@id/my_order"
+            android:text="@string/my_order" />
+
+        <ImageButton style="@style/MyListArrow" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/my_color_frame">
+
+    </RelativeLayout>
+
+</LinearLayout>
