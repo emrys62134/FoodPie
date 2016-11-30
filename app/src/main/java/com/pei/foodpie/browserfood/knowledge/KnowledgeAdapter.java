@@ -11,13 +11,15 @@ import android.widget.TextView;
 import com.pei.foodpie.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 /**
  * Created by dllo on 16/11/24.
  */
 
 public class KnowledgeAdapter extends BaseAdapter {
 
-    private KnowledgeBean bean;
+    private List<KnowledgeBean.FeedsBeanDetail> bean;
     private Context mContext;
     private static final int FIRST_TYPE = 0;
     private static final int SECOND_TYPE = 1;
@@ -27,19 +29,19 @@ public class KnowledgeAdapter extends BaseAdapter {
         this.mContext = mContext;
     }
 
-    public void setKnowledgeBean(KnowledgeBean knowledgeBean) {
-        bean = knowledgeBean;
+    public void setBean(List<KnowledgeBean.FeedsBeanDetail> bean) {
+        this.bean = bean;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return bean == null ? 0 : bean.getFeeds().size();
+        return bean == null ? 0 : bean.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return bean == null ? null : bean.getFeeds().get(i);
+        return bean == null ? null : bean.get(i);
     }
 
     @Override
@@ -49,7 +51,7 @@ public class KnowledgeAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        int type = bean.getFeeds().get(position).getContent_type();
+        int type = bean.get(position).getContent_type();
         if (type == 1) {
             return FIRST_TYPE;
         } else {
@@ -95,21 +97,26 @@ public class KnowledgeAdapter extends BaseAdapter {
         }
         switch (type){
             case FIRST_TYPE:
-                firstViewHolder.titleTv.setText(bean.getFeeds().get(i).getTitle());
-                firstViewHolder.userTv.setText(bean.getFeeds().get(i).getSource());
-                Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(0)).into(firstViewHolder.pic);
-                firstViewHolder.countTv.setText(bean.getFeeds().get(i).getTail());
+                firstViewHolder.titleTv.setText(bean.get(i).getTitle());
+                firstViewHolder.userTv.setText(bean.get(i).getSource());
+                Picasso.with(mContext).load(bean.get(i).getImages().get(0)).into(firstViewHolder.pic);
+                firstViewHolder.countTv.setText(bean.get(i).getTail());
                 break;
             case SECOND_TYPE:
-                secondViewHolder.titleTvS.setText(bean.getFeeds().get(i).getTitle());
-                secondViewHolder.userTvS.setText(bean.getFeeds().get(i).getSource());
-                secondViewHolder.countTvS.setText(bean.getFeeds().get(i).getItem_id());
-                Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(0)).into(secondViewHolder.ivOneS);
-                Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(1)).into(secondViewHolder.ivTwoS);
-                Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(2)).into(secondViewHolder.ivThreeS);
+                secondViewHolder.titleTvS.setText(bean.get(i).getTitle());
+                secondViewHolder.userTvS.setText(bean.get(i).getSource());
+                secondViewHolder.countTvS.setText(bean.get(i).getItem_id()+"");
+                Picasso.with(mContext).load(bean.get(i).getImages().get(0)).into(secondViewHolder.ivOneS);
+                Picasso.with(mContext).load(bean.get(i).getImages().get(1)).into(secondViewHolder.ivTwoS);
+                Picasso.with(mContext).load(bean.get(i).getImages().get(2)).into(secondViewHolder.ivThreeS);
                 break;
         }
         return view;
+    }
+
+    public void addMore(List<KnowledgeBean.FeedsBeanDetail> bean1) {
+        bean.addAll(bean1);
+        notifyDataSetChanged();
     }
 
     class FirstViewHolder {

@@ -6,4 +6,5 @@ package com.pei.foodpie.browserfood.evaluation;
 
 public interface ClickListener {
     void onClickListener(int position);
+
 }

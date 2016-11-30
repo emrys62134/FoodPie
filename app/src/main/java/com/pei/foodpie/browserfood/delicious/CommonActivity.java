@@ -29,7 +29,7 @@ public class CommonActivity extends BaseActivity{
     protected void initView() {
         Intent intent = getIntent();
         String url = intent.getStringExtra("data");
-        Log.d("CommonActivity", url);
+
         webView = (WebView) findViewById(R.id.web_delicious);
 
          webViewClient = new WebViewClient();
@@ -40,6 +40,7 @@ public class CommonActivity extends BaseActivity{
 
 
         webView.loadUrl(url);
+
 
 
     }

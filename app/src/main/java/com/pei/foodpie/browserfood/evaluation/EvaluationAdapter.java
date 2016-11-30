@@ -11,13 +11,15 @@ import android.widget.TextView;
 import com.pei.foodpie.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 /**
  * Created by dllo on 16/11/24.
  */
 
 public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.EvaluationViewHolder> {
 
-    private EvaluationBean bean;
+    private List<EvaluationBean.FeedsBeanDetail> bean;
     private Context mContext;
     private ClickListener clickListener;
 
@@ -25,7 +27,7 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
         this.mContext = mContext;
     }
 
-    public void setBean(EvaluationBean bean) {
+    public void setBean(List<EvaluationBean.FeedsBeanDetail> bean) {
         this.bean = bean;
         notifyDataSetChanged();
     }
@@ -48,17 +50,23 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
             @Override
             public void onClick(View view) {
                 clickListener.onClickListener(position);
+//                clickListener.onClick(position);
             }
         });
-        holder.tvCount.setText(bean.getFeeds().get(position).getTail());
-        holder.tvTitle.setText(bean.getFeeds().get(position).getSource());
-        holder.tvDesc.setText(bean.getFeeds().get(position).getTitle());
-        Picasso.with(mContext).load(bean.getFeeds().get(position).getBackground()).into(holder.imageView);
+        holder.tvCount.setText(bean.get(position).getTail());
+        holder.tvTitle.setText(bean.get(position).getSource());
+        holder.tvDesc.setText(bean.get(position).getTitle());
+        Picasso.with(mContext).load(bean.get(position).getBackground()).into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return bean == null ? 0 :bean.getFeeds().size();
+        return bean == null ? 0 :bean.size();
+    }
+
+    public void addMore(List<EvaluationBean.FeedsBeanDetail> bean1) {
+        bean.addAll(bean1);
+        notifyDataSetChanged();
     }
 
     public class EvaluationViewHolder extends RecyclerView.ViewHolder {

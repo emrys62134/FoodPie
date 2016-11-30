@@ -3,39 +3,39 @@
 
     <item
         is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_93ec659470b8ac7112b4792d01bed29479dde958.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/dllo/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/gson-2.8.0_cc7575cafe64b2efa483b94f2791441b955c0ea3.jar" />
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/gson-2.8.0_cc7575cafe64b2efa483b94f2791441b955c0ea3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_0258c3695aad82b3fca04a9ababffdec89cf40b0.jar" />
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_548eb2a554a67d8a338989b6a4b294644c8dd467.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_921ecbff137cf656069cb92e4d283213224cb314.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_3445b8c167e8c2cf2f855766e6a72bba96197686.jar" />
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_ee16fc18409af9503cbcb5800b498c8c073f3714.jar" />
     </item>
     <item
         is-multidex="false"
@@ -44,52 +44,43 @@
         optimize="true"
         revision="25.0.0"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_34c757e3dd217511b724071e407fc0a7924e9866.jar" />
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_34c757e3dd217511b724071e407fc0a7924e9866.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a3ac3d30355271081bd7367209317f5944ef87db.jar" />
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_7f2e110714882df2b61e8e047e3076a8235d2e16.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/Desktop/Androidsenior/Android-SDK-mac/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_947610acf92661f9ed213ffbe6b945f9bca44666.jar" />
+        sha1="f07c8b100ee0ccd4213b4bfa8c2800dca99e7852">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_4e2682ea03deac8da6690c898da228ed78b81c9a.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_4f9c318b6d2d557b5f0840568ce872aef5630aaf.jar" />
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_680f35be1734eee33246f6cbc56c8936c8396597.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_a32ac3fff41e5145ed8277408337905159259a82.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_fef2e0d40d5344d5044a8306dcd49cdd836ce17a.jar" />
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_f0088b518dbffcdbd71d580ece7e36047438deb3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -98,124 +89,142 @@
         optimize="true"
         revision="25.0.0"
         sha1="b0b08cc0ac897e596abe6b263a9507cba875b705">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.volley-2015.05.28_4e77161c1a9fadcc7f763d5581c103bb66afac85.jar" />
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.volley-2015.05.28_4e77161c1a9fadcc7f763d5581c103bb66afac85.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-2.1.0_4de00b87f5803641ab68d0806fcf9e82eededd59.jar" />
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-2.1.0_106c1c9c6a030055fdd7fe6a1e06d32b28bdf3a5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_9db207eccb2d101d4edd53dc6760e6df06a186ab.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_7186a90a2804a30a8821d3b7fe3603865137ef10.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_23aa63ec7a8a98cc87eb2f4ce9fef372892ee48d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_696246da66cd369ad1415387dccae9552a4d2279.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_0091aa4af56d5d99b27622eeaec285dda89e7d7d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="388c662c65d58b2cc38f4011b74e43955eb44707">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/instant-run_57f3d066f349f04e6b29e2b9847eb65cce12b893.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_5198f61b419767bf286e1d65676a2da7c2c10440.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_342b24bbbdc77efa1113d935e9b6191f90655667.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_78554134ceb7593bb9ecd717590dbffe795f5ad3.jar" />
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_0033d2ac1cb4698d7b3c827041c498290e75e0a6.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_660659dad2fce925656e46c92a967139443fe90e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-24.2.1_bd22481835e46ae7874b28f107053de7896b714e.jar" />
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-24.2.1_c1c1bb5a29d39d10a85c7ed28d436538ff934ee0.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="830e446f96b43176d95a41f2d8af2a4c461be854">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_61b0798f4a6a64041dbe7b3e1eadc3991430cb2e.jar" />
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_ed375e28e70b952b38366bd3c2e3e4b38adeba14.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/dllo/ProjectSenior/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_3ff665251acc5594780f74d039c4ad1f9383dc56.jar" />
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_ab14380843571d22e4557dc70960a26ccfca8fb8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/Androidsenior/Android-SDK-mac/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_947610acf92661f9ed213ffbe6b945f9bca44666.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_4d65de58524788e5975db28ce6814e0c28555442.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4003c8213a14f18524aee5f7b583f8edb95720a3">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/instant-run_e2e26850a6f5efa20c6d16b37b4c361d9b83a8bd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_98784a82da3d9aa6ade72a875c5993079d19bc10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_6aab32715186d4d53b51905c822b1a32ecb53c2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.github.Aspsine/SwipeToLoadLayout/1.0.3/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e891efa590a2379d966e96688865282e9ded27ac">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.github.Aspsine-SwipeToLoadLayout-1.0.3_58a03429d4150ea73a8fea8c1c921bf099b7f397.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_aaefb756960c747902fd41df2aa481237ad0eb4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_162c5c19f09f95980ab59d28c313c689f7d1d163.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ca6ec5acb41a09351c0caf3e1faa6444781d096f.jar" />
     </item>
 
 </items>
