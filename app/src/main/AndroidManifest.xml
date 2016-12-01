@@ -17,10 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".activity.SettingActivity"/>
+
         <activity android:name=".activity.LoginActivity"/>
 
-        <activity android:name=".browserfood.delicious.CommonActivity"/>
+        <activity android:name=".activity.CommonActivity"/>
+
+        <activity android:name=".activity.HomeDetailActivity"/>
+
+        <activity android:name=".activity.HomeDetailSecondActivity"/>
 
     </application>
 

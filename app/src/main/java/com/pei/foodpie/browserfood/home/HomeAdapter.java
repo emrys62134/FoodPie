@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pei.foodpie.R;
+import com.pei.foodpie.browserfood.evaluation.ClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,37 +23,37 @@ import java.util.Random;
 public class HomeAdapter extends RecyclerView.Adapter {
 
 
-    private List<HomeBean.FeedsBeanDetail> beans;
-    private Context mContext;
+    private ClickListener clickListener;
+    private HomeBean bean;
+
     public static final int FIRST_TYPE = 5;
     public static final int SECOND_TYPE = 6;
 
     private ArrayList<Integer> heights;
+    private Context mContext;
 
-    public void setBeans(List<HomeBean.FeedsBeanDetail> beans) {
-        this.beans = beans;
-        heights = new ArrayList<>();
-        for (int i = 0; i < beans.size(); i++) {
-            Random random = new Random();
-            int height = random.nextInt(500 + 200 - 1) + 200;
-            heights.add(height);
-        }
+
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
         notifyDataSetChanged();
-
     }
 
-    public HomeAdapter(Context mContext) {
-        this.mContext = mContext;
+    public void setBean(HomeBean bean) {
+        this.bean = bean;
+        notifyDataSetChanged();
     }
+
+
 
 
     @Override
     public int getItemViewType(int position) {
-            return beans.get(position).getContent_type();
+            return bean.getFeeds().get(position).getContent_type();
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        mContext = parent.getContext();
         RecyclerView.ViewHolder viewHolder = null;
         switch (viewType) {
             case FIRST_TYPE:
@@ -68,30 +69,40 @@ public class HomeAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListener.onClickListener(position);
+            }
+        });
         int type = getItemViewType(position);
         switch (type) {
             case FIRST_TYPE:
                 FirstViewHolder firstViewHolder = (FirstViewHolder) holder;
-                Picasso.with(mContext).load(beans.get(position).getCard_image())
+                Picasso.with(mContext).load(bean.getFeeds().get(position).getCard_image())
                         .resize(200,300)
                         .into(firstViewHolder.bigPicF);
-                Picasso.with(mContext).load(beans.get(position).getPublisher_avatar()).
+                Picasso.with(mContext).load(bean.getFeeds().get(position).getPublisher_avatar()).
                         resize(20,30).into(firstViewHolder.userIconF);
-                firstViewHolder.titleF.setText(beans.get(position).getTitle());
-                firstViewHolder.userNameF.setText(beans.get(position).getPublisher());
-                firstViewHolder.countF.setText(beans.get(position).getLike_ct() + "");
+                firstViewHolder.titleF.setText(bean.getFeeds().get(position).getTitle());
+                firstViewHolder.userNameF.setText(bean.getFeeds().get(position).getPublisher());
+                firstViewHolder.countF.setText(bean.getFeeds().get(position).getLike_ct() + "");
                 break;
             case SECOND_TYPE:
                 SecondViewHolder secondViewHolder = (SecondViewHolder) holder;
-                Picasso.with(mContext).load(beans.get(position).getCard_image()).fit().into(secondViewHolder.ivS);
+                Picasso.with(mContext).load(bean.getFeeds().get(position).getCard_image()).fit().into(secondViewHolder.ivS);
                 break;
         }
     }
 
     @Override
     public int getItemCount() {
-        return beans == null ? 0 : beans.size();
+        return bean == null ? 0 : bean.getFeeds().size();
+    }
+
+    public void addMore(HomeBean homeBean) {
+        bean.getFeeds().addAll(homeBean.getFeeds());
     }
 
     class FirstViewHolder extends RecyclerView.ViewHolder {

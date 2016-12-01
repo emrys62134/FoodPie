@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.android.volley.VolleyError;
 
 import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
@@ -12,13 +13,11 @@ import com.aspsine.swipetoloadlayout.OnRefreshListener;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseFragment;
-import com.pei.foodpie.browserfood.delicious.CommonActivity;
+import com.pei.foodpie.activity.CommonActivity;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.volleysingleton.MyApp;
 import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
-
-import java.util.List;
 
 /**
  * Created by dllo on 16/11/23.
@@ -28,13 +27,10 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
     private SwipeToLoadLayout swipeToLoadLayout;
     private ListView lv;
     private KnowledgeAdapter adapter;
-
-    private String headUrl ="http://food.boohee.com/fb/v1/feeds/category_feed?page=";
-    private String footUrl = "&category=3&per=10";
     private int i = 2;
     private String newUrl;
 
-    private List<KnowledgeBean.FeedsBeanDetail> detail;
+    private KnowledgeBean detail;
 
     @Override
     protected int setLayout() {
@@ -49,7 +45,7 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
     @Override
     protected void initData() {
         getNetData(); // 获取网络数据
-        autoRefresh();
+//        autoRefresh();
     }
 
 
@@ -59,31 +55,33 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
         swipeToLoadLayout.setOnLoadMoreListener(this);
 
         lv = bindView(R.id.swipe_target);
-        adapter = new KnowledgeAdapter(MyApp.getContext());
+        adapter = new KnowledgeAdapter();
         lv.setAdapter(adapter);
     }
 
     private void getNetData() {
-        VolleySingleton.MyRequest(Constant.KnowledgeUrl, KnowledgeBean.class, new NetListener<KnowledgeBean>() {
+        VolleySingleton.MyRequest(Constant.KNOWLEDGE_URL, KnowledgeBean.class, new NetListener<KnowledgeBean>() {
             @Override
             public void successListener(final KnowledgeBean response) {
 
-                adapter.setBean(response.getFeeds());
+                adapter.setBean(response);
+                detail = response;
 
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(getActivity(), CommonActivity.class);
-                        intent.putExtra("data",detail.get(i).getLink());
-                        startActivity(intent);
-
-
-                    }
-                });
             }
 
             @Override
             public void errorListener(VolleyError error) {
+
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), CommonActivity.class);
+                intent.putExtra("data", detail.getFeeds().get(i).getLink());
+                startActivity(intent);
+
 
             }
         });
@@ -95,29 +93,12 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
             @Override
             public void run() {
                 swipeToLoadLayout.setRefreshing(false);
-                newUrl = headUrl + 0 + footUrl;
                 refreshData();
             }
 
 
-        },2000);
+        }, 2000);
     }
-
-    private void refreshData() {
-        VolleySingleton.MyRequest(newUrl, KnowledgeBean.class, new NetListener<KnowledgeBean>() {
-            @Override
-            public void successListener(KnowledgeBean response) {
-                detail = response.getFeeds();
-                adapter.setBean(detail);
-            }
-
-            @Override
-            public void errorListener(VolleyError error) {
-
-            }
-        });
-    }
-
 
     @Override
     public void onLoadMore() {
@@ -125,11 +106,30 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
             @Override
             public void run() {
                 swipeToLoadLayout.setLoadingMore(false);
-                newUrl = headUrl + i + footUrl;
+                newUrl = Constant.KNOWLEDGE_HEAD_URL + i + Constant.KNOWLEDGE_FOOT_URL;
                 getData();
                 i++;
             }
-        },2000);
+        }, 2000);
+    }
+
+
+
+
+
+    private void refreshData() {
+        VolleySingleton.MyRequest(Constant.KNOWLEDGE_URL, KnowledgeBean.class, new NetListener<KnowledgeBean>() {
+            @Override
+            public void successListener(KnowledgeBean response) {
+
+                adapter.setBean(response);
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
     }
 
     private void getData() {
@@ -137,28 +137,9 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
             @Override
             public void successListener(final KnowledgeBean response) {
 
-                adapter.addMore(response.getFeeds());
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                adapter.addMore(response);
 
-                        Intent intent = new Intent (getActivity(),CommonActivity.class);
-                       List <KnowledgeBean.FeedsBeanDetail> data = response.getFeeds();
-                        if (detail == null){
-                            detail = data;
-                        }else{
-                            for (int j = 0; j < data.size() ; j++) {
-                                detail.add(data.get(j));
-
-                            }
-                        }
-                        intent.putExtra("data",detail.get(i).getLink());
-                        adapter.setBean(detail);
-                        startActivity(intent);
-
-                    }
-
-                });
+                detail.getFeeds().addAll(response.getFeeds());
 
 
             }
@@ -169,12 +150,14 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
             }
         });
     }
-    private void autoRefresh(){
-        swipeToLoadLayout.post(new Runnable() {
-            @Override
-            public void run() {
-               swipeToLoadLayout.setRefreshing(true);
-            }
-        });
-    }
+
+//    private void autoRefresh() {
+//        swipeToLoadLayout.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                swipeToLoadLayout.setRefreshing(true);
+//                refreshData();
+//            }
+//        });
+//    }
 }

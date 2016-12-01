@@ -1,32 +1,41 @@
 package com.pei.foodpie.browserfood.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+
+
 import android.view.View;
 
 
 import com.android.volley.VolleyError;
+import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
+import com.aspsine.swipetoloadlayout.OnRefreshListener;
+import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.pei.foodpie.R;
+import com.pei.foodpie.activity.HomeDetailActivity;
+import com.pei.foodpie.activity.HomeDetailSecondActivity;
 import com.pei.foodpie.base.BaseFragment;
+import com.pei.foodpie.browserfood.evaluation.ClickListener;
 import com.pei.foodpie.constant.Constant;
-import com.pei.foodpie.volleysingleton.MyApp;
 import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by dllo on 16/11/23.
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements OnLoadMoreListener, OnRefreshListener, ClickListener {
 
     private RecyclerView rv;
-    private List<HomeBean.FeedsBeanDetail> beanDetails;
+    private HomeBean bean;
     private HomeAdapter adapter;
+    private SwipeToLoadLayout swipeToLoadLayout;
+    private int i = 2;
+    private String newUrl;
 
     public static HomeFragment newInstance() {
 
@@ -54,22 +63,104 @@ public class HomeFragment extends BaseFragment {
     }
 
 
-
-
     private void initViews() {
-        rv = bindView(R.id.rv_home);
-        adapter = new HomeAdapter(MyApp.getContext());
-        beanDetails = new ArrayList<>();
+        swipeToLoadLayout = bindView(R.id.swipe_load_layout);
+        swipeToLoadLayout.setOnLoadMoreListener(this);
+        swipeToLoadLayout.setOnRefreshListener(this);
+
+
+        rv = bindView(R.id.swipe_target);
+        adapter = new HomeAdapter();
         rv.setAdapter(adapter);
         rv.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        adapter.setClickListener(this);
     }
 
     private void getNetData() {
-        VolleySingleton.MyRequest(Constant.HomeUrl, HomeBean.class, new NetListener<HomeBean>() {
+        VolleySingleton.MyRequest(Constant.HOME_URL, HomeBean.class, new NetListener<HomeBean>() {
             @Override
             public void successListener(HomeBean response) {
-                beanDetails = response.getFeeds();
-                adapter.setBeans(beanDetails);
+                adapter.setBean(response);
+                bean = response;
+
+
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
+    }
+
+
+    @Override
+    public void onClickListener(int position) {
+
+
+        if (bean.getFeeds().get(position).getContent_type() == 6) {
+            Intent intent = new Intent(getActivity(), HomeDetailActivity.class);
+            intent.putExtra("home", bean.getFeeds().get(position).getLink());
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(), HomeDetailSecondActivity.class);
+            intent.putExtra("bigPic", bean.getFeeds().get(position).getCard_image());
+            intent.putExtra("userIcon", bean.getFeeds().get(position).getPublisher_avatar());
+            intent.putExtra("title", bean.getFeeds().get(position).getTitle());
+            intent.putExtra("user", bean.getFeeds().get(position).getPublisher());
+            intent.putExtra("like", bean.getFeeds().get(position).getLike_ct() + "");
+            startActivity(intent);
+        }
+
+
+
+    }
+
+    @Override
+    public void onLoadMore() {
+        swipeToLoadLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeToLoadLayout.setLoadingMore(false);
+                newUrl = Constant.HOME_HEAD_URL + i + Constant.HOME_FOOT_URL;
+                getLoadData();
+                i++;
+            }
+        }, 2000);
+    }
+
+    private void getLoadData() {
+        VolleySingleton.MyRequest(newUrl, HomeBean.class, new NetListener<HomeBean>() {
+            @Override
+            public void successListener(HomeBean response) {
+                adapter.addMore(response);
+                bean.getFeeds().addAll(response.getFeeds());
+
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeToLoadLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeToLoadLayout.setRefreshing(false);
+                getRefreshData();
+            }
+        }, 2000);
+    }
+
+    private void getRefreshData() {
+        VolleySingleton.MyRequest(Constant.HOME_URL, HomeBean.class, new NetListener<HomeBean>() {
+            @Override
+            public void successListener(HomeBean response) {
+                adapter.setBean(response);
             }
 
             @Override

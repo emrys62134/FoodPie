@@ -5,7 +5,7 @@
     android:id="@+id/swipeToLoadLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pei.foodpie.browserfood.delicious.CommonActivity">
+    tools:context="com.pei.foodpie.activity.CommonActivity">
 
 
     <com.pei.foodpie.customrefresh.RefreshHeaderView

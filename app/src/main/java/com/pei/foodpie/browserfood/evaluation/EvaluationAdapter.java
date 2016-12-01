@@ -19,7 +19,7 @@ import java.util.List;
 
 public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.EvaluationViewHolder> {
 
-    private List<EvaluationBean.FeedsBeanDetail> bean;
+    private EvaluationBean bean;
     private Context mContext;
     private ClickListener clickListener;
 
@@ -27,7 +27,7 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
         this.mContext = mContext;
     }
 
-    public void setBean(List<EvaluationBean.FeedsBeanDetail> bean) {
+    public void setBean(EvaluationBean bean) {
         this.bean = bean;
         notifyDataSetChanged();
     }
@@ -53,19 +53,19 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
 //                clickListener.onClick(position);
             }
         });
-        holder.tvCount.setText(bean.get(position).getTail());
-        holder.tvTitle.setText(bean.get(position).getSource());
-        holder.tvDesc.setText(bean.get(position).getTitle());
-        Picasso.with(mContext).load(bean.get(position).getBackground()).into(holder.imageView);
+        holder.tvCount.setText(bean.getFeeds().get(position).getTail());
+        holder.tvTitle.setText(bean.getFeeds().get(position).getSource());
+        holder.tvDesc.setText(bean.getFeeds().get(position).getTitle());
+        Picasso.with(mContext).load(bean.getFeeds().get(position).getBackground()).into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return bean == null ? 0 :bean.size();
+        return bean == null ? 0 :bean.getFeeds().size();
     }
 
-    public void addMore(List<EvaluationBean.FeedsBeanDetail> bean1) {
-        bean.addAll(bean1);
+    public void addMore(EvaluationBean bean1) {
+        bean.getFeeds().addAll(bean1.getFeeds());
         notifyDataSetChanged();
     }
 

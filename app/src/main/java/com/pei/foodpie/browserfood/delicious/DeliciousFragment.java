@@ -1,10 +1,8 @@
 package com.pei.foodpie.browserfood.delicious;
 
 
-import android.content.Context;
 import android.content.Intent;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,12 +14,13 @@ import com.aspsine.swipetoloadlayout.OnRefreshListener;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.pei.foodpie.R;
+import com.pei.foodpie.activity.CommonActivity;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 
-import java.util.List;
+
 
 /**
  * Created by dllo on 16/11/23.
@@ -31,15 +30,9 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
     private ListView lv;
     private DeliciousAdapter adapter;
     private SwipeToLoadLayout swipeToLoadLayout;
-    List<DeliciousBean.FeedsBeanDetail> bean;
-
-
-    String headUrl = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";
-    String footerUrl = "&category=4&per=10";
-
-
-    int i = 2;
-    private String newUrl;
+    DeliciousBean bean;
+    int i = 2;  // 设置网址拼接的初始值
+    private String newUrl; // 网址拼接后的网址
 
     @Override
     protected int setLayout() {
@@ -68,107 +61,94 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
         lv.setAdapter(adapter);
 
 
-        autoRefresh();
-
 
     }
 
     private void getNetData() {
-        VolleySingleton.MyRequest(Constant.DeliciousUrl, DeliciousBean.class, new NetListener<DeliciousBean>() {
+        VolleySingleton.MyRequest(Constant.DELICIOUS_URL, DeliciousBean.class, new NetListener<DeliciousBean>() {
             @Override
             public void successListener(final DeliciousBean response) {
-                Log.d("DeliciousFragment", "请求成功");
-                Log.d("DeliciousFragment", "response.getFeeds():" + response.getFeeds());
-                bean = response.getFeeds();
-                adapter.setBean(bean);
-
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(getActivity(), CommonActivity.class);
-
-                        intent.putExtra("data", response.getFeeds().get(i).getLink());
-
-                        Log.d("DeliciousFragment", "i:" + i);
-                        startActivity(intent);
-
-                    }
-                });
+                adapter.setBean(response);
+                bean = response;
             }
 
             @Override
             public void errorListener(VolleyError error) {
-                Log.d("DeliciousFragment", "请求失败");
+
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), CommonActivity.class);
+
+                intent.putExtra("data", bean.getFeeds().get(i).getLink());
+
+
+                startActivity(intent);
+
             }
         });
 
     }
 
 
+    // 下拉刷新方法
     @Override
     public void onRefresh() {
         swipeToLoadLayout.postDelayed(new Runnable() {
             @Override
             public void run() {
                 swipeToLoadLayout.setRefreshing(false);
-
+                // 刷新没有拼接后的网址即可
+                getRefreshData();
             }
         }, 2000);
     }
 
+    // 上拉加载的方法
     @Override
     public void onLoadMore() {
         swipeToLoadLayout.postDelayed(new Runnable() {
             @Override
             public void run() {
                 swipeToLoadLayout.setLoadingMore(false);
-                newUrl = headUrl + i + footerUrl;
+                newUrl = Constant.DELICIOUS_HEAD_URL + i + Constant.DELICIOUS_FOOT_URL;
 
-                getData();
+                getLoadData(); // 上拉加载后的网络数据
 
                 i++;
             }
         }, 2000);
     }
 
-    private void autoRefresh() {
-        swipeToLoadLayout.post(new Runnable() {
+
+
+
+    private void getRefreshData() {
+        VolleySingleton.MyRequest(Constant.DELICIOUS_URL, DeliciousBean.class, new NetListener<DeliciousBean>() {
             @Override
-            public void run() {
-                swipeToLoadLayout.setRefreshing(true);
+            public void successListener(DeliciousBean response) {
+                adapter.addMore(response);
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
             }
         });
     }
 
-    private void getData() {
+
+    private void getLoadData() {
         VolleySingleton.MyRequest(newUrl, DeliciousBean.class, new NetListener<DeliciousBean>() {
             @Override
             public void successListener(final DeliciousBean response) {
-                Log.d("拼接后URL", "response.getFeeds():" + response.getFeeds());
-                adapter.addMore(response.getFeeds());
 
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(getActivity(), CommonActivity.class);
+                adapter.addMore(response); // 将新拼接网址请求下来的数据添加到原有的集合中
 
-
-                        List<DeliciousBean.FeedsBeanDetail> details = response.getFeeds();
-                        if (bean == null) {
-                            bean = details;
-                        } else {
-                            for (int j = 0; j < details.size(); j++) {
-                                bean.add(details.get(j));
-                            }
-                        }
-                        intent.putExtra("data", bean.get(i).getLink());
-                        adapter.setBean(bean);
-
-
-                        startActivity(intent);
-
-                    }
-                });
+                bean.getFeeds().addAll(response.getFeeds()); // 将上拉加载后的每一个item数据加载到集合中
 
             }
 
@@ -178,4 +158,6 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
             }
         });
     }
+
+
 }

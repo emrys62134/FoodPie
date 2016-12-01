@@ -9,6 +9,10 @@ import com.pei.foodpie.base.BaseActivity;
 /**
  * Created by dllo on 16/11/25.
  */
+
+/**
+ *      我的界面 :登录界面
+ */
 public class LoginActivity extends BaseActivity{
     @Override
     protected int setLayout() {

@@ -11,6 +11,10 @@ import com.pei.foodpie.base.BaseActivity;
 /**
  * Created by dllo on 16/11/25.
  */
+
+/**
+ * 我的界面 右上角 设置界面
+ */
 public class SettingActivity extends BaseActivity {
 
     @Override
