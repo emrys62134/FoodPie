@@ -19,7 +19,7 @@ import com.pei.foodpie.R;
 import com.pei.foodpie.activity.HomeDetailActivity;
 import com.pei.foodpie.activity.HomeDetailSecondActivity;
 import com.pei.foodpie.base.BaseFragment;
-import com.pei.foodpie.browserfood.evaluation.ClickListener;
+import com.pei.foodpie.utils.ClickListener;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
@@ -111,7 +111,6 @@ public class HomeFragment extends BaseFragment implements OnLoadMoreListener, On
             intent.putExtra("like", bean.getFeeds().get(position).getLike_ct() + "");
             startActivity(intent);
         }
-
 
 
     }

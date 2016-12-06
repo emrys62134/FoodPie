@@ -21,4 +21,14 @@
     <string name="measure_score">评个分吧</string>
     <string name="clear_cache">清除缓存</string>
     <string name="suggest">给我们提个建议</string>
+    <string name="no_register">不用注册, 用以下账号直接登录</string>
+    <string name="pic_detail">图片详情</string>
+
+
+
+    <!--测试使用-->
+    <string name="cover">覆盖</string>
+    <string name="water">水电费</string>
+    <string name="test">测试</string>
+
 </resources>

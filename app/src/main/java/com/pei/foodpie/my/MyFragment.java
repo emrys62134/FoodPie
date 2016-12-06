@@ -74,11 +74,11 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
 
         // 跳到设置界面
-        Intent intentSetting = new Intent(getActivity(),SettingActivity.class);
+        Intent intentSetting = new Intent(getActivity(), SettingActivity.class);
         // 跳到登录界面
-        Intent intentLogin = new Intent(getActivity(),LoginActivity.class);
+        Intent intentLogin = new Intent(getActivity(), LoginActivity.class);
 
-        switch(view.getId()){
+        switch (view.getId()) {
 
             case R.id.setting_my:
                 startActivity(intentSetting);

@@ -9,12 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pei.foodpie.R;
-import com.pei.foodpie.browserfood.evaluation.ClickListener;
+import com.pei.foodpie.utils.ClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Created by dllo on 16/11/23.

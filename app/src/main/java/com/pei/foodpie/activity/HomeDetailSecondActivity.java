@@ -20,6 +20,15 @@ public class HomeDetailSecondActivity extends BaseActivity implements View.OnCli
 
     @Override
     protected void initView() {
+        initViews();
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    private void initViews() {
         ImageView back = bindView(R.id.back_detail_home_second);
         back.setOnClickListener(this);
         ImageView share = bindView(R.id.share_detail_home_second);
@@ -33,7 +42,6 @@ public class HomeDetailSecondActivity extends BaseActivity implements View.OnCli
         String like1 = intent.getStringExtra("like");
 
 
-
         ImageView bigPic = bindView(R.id.big_pic_detail_home_second);
         ImageView userIcon = bindView(R.id.user_icon_detail_home_second);
         TextView user = bindView(R.id.user_name_detail_home_second);
@@ -45,14 +53,6 @@ public class HomeDetailSecondActivity extends BaseActivity implements View.OnCli
         user.setText(userName);
         title.setText(title1);
         like.setText(like1);
-
-
-
-    }
-
-    @Override
-    protected void initData() {
-
     }
 
     @Override

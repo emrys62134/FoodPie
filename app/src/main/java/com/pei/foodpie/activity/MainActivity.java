@@ -25,7 +25,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private MyFragment myFragment;
 
 
-
     @Override
     protected int setLayout() {
         return R.layout.activity_main;
@@ -33,7 +32,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
-
         initViews();
     }
 
@@ -60,7 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fl,foodBaiKeFragment);
+        transaction.replace(R.id.fl, foodBaiKeFragment);
         transaction.commit();
     }
 
@@ -68,15 +66,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.rb_food_bai_ke:
-                transaction.replace(R.id.fl,foodBaiKeFragment);
+                transaction.replace(R.id.fl, foodBaiKeFragment);
                 break;
             case R.id.rb_browser:
-                transaction.replace(R.id.fl,browserFragment);
+                transaction.replace(R.id.fl, browserFragment);
                 break;
             case R.id.rb_my:
-                transaction.replace(R.id.fl,myFragment);
+                transaction.replace(R.id.fl, myFragment);
                 break;
         }
         transaction.commit();

@@ -16,9 +16,9 @@ import com.pei.foodpie.base.BaseActivity;
  */
 
 /**
- *  评测 知识 美食 的二级页面
+ * 评测 知识 美食 的二级页面
  */
-public class CommonActivity extends BaseActivity{
+public class CommonActivity extends BaseActivity {
 
     private WebView webView;
     private WebViewClient webViewClient;
@@ -31,12 +31,22 @@ public class CommonActivity extends BaseActivity{
 
     @Override
     protected void initView() {
+        initViews();
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    private void initViews() {
         Intent intent = getIntent();
         String url = intent.getStringExtra("data");
 
         webView = (WebView) findViewById(R.id.web_delicious);
 
-         webViewClient = new WebViewClient();
+        webViewClient = new WebViewClient();
         webView.setWebViewClient(webViewClient);
         webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -44,13 +54,5 @@ public class CommonActivity extends BaseActivity{
 
 
         webView.loadUrl(url);
-
-
-
-    }
-
-    @Override
-    protected void initData() {
-
     }
 }

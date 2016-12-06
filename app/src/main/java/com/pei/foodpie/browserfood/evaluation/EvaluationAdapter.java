@@ -9,9 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pei.foodpie.R;
+import com.pei.foodpie.utils.ClickListener;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 /**
  * Created by dllo on 16/11/24.
@@ -39,7 +38,7 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
 
     @Override
     public EvaluationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_evaluation,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_evaluation, parent, false);
         EvaluationViewHolder evaluationViewHolder = new EvaluationViewHolder(view);
         return evaluationViewHolder;
     }
@@ -50,7 +49,7 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
             @Override
             public void onClick(View view) {
                 clickListener.onClickListener(position);
-//                clickListener.onClick(position);
+
             }
         });
         holder.tvCount.setText(bean.getFeeds().get(position).getTail());
@@ -61,7 +60,7 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
 
     @Override
     public int getItemCount() {
-        return bean == null ? 0 :bean.getFeeds().size();
+        return bean == null ? 0 : bean.getFeeds().size();
     }
 
     public void addMore(EvaluationBean bean1) {
@@ -74,6 +73,7 @@ public class EvaluationAdapter extends RecyclerView.Adapter<EvaluationAdapter.Ev
         private TextView tvTitle;
         private TextView tvDesc;
         private TextView tvCount;
+
         public EvaluationViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.iv_evaluation);

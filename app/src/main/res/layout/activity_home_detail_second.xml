@@ -1,64 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        style="@style/WidthMatchAndHorizontal"
+        android:layout_height="50dp">
+
         <ImageView
             android:id="@+id/back_detail_home_second"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            style="@style/WidthZeroAndHeightMatchWeightOne"
             android:scaleType="center"
-            android:src="@mipmap/ic_back_dark_center"/>
+            android:src="@mipmap/ic_back_dark_center" />
 
         <TextView
-            android:gravity="center_vertical"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="图片详情"
-            android:layout_weight="5"/>
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="@string/pic_detail" />
 
         <ImageView
             android:id="@+id/share_detail_home_second"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            style="@style/WidthZeroAndHeightWrapWeightOne"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/ic_share_dark"/>
+            android:src="@mipmap/ic_share_dark" />
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000000"/>
+    <View style="@style/DivideLine" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:layout_margin="10dp"
-        android:orientation="horizontal"
-        >
+        android:layout_margin="@dimen/ten"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_icon_detail_home_second"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@mipmap/ic_launcher"/>
+            style="@style/WidthZeroAndHeightWrapWeightOne"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/user_name_detail_home_second"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:text="覆盖"
-            android:gravity="center_vertical"/>
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="@string/cover" />
 
     </LinearLayout>
 
@@ -66,48 +57,37 @@
         android:id="@+id/big_pic_detail_home_second"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="8"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/title_detail_home_second"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="10dp"
-        android:text="水电费"
-        android:layout_gravity="end|center_horizontal"/>
+        style="@style/WidthWrapAndHeightZeroWeightOne"
+        android:layout_gravity="end|center_horizontal"
+        android:layout_margin="@dimen/ten"
+        android:text="@string/test" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000000"/>
-
+    <View style="@style/DivideLine" />
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        style="@style/WidthMatchAndHorizontal"
+        android:layout_height="@dimen/fifty"
+        android:layout_alignParentBottom="true">
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="fitEnd"
+            style="@style/WidthZeroAndHeightWrapWeightOne"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:src="@mipmap/ic_home_agree"/>
+            android:layout_marginRight="@dimen/ten"
+            android:scaleType="fitEnd"
+            android:src="@mipmap/ic_home_agree" />
 
         <TextView
             android:id="@+id/like_detail_home_second"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            style="@style/WidthZeroAndHeightMatchWeightOne"
             android:gravity="center_vertical"
-            android:text="水电费"/>
+            android:text="@string/test" />
 
     </LinearLayout>
 

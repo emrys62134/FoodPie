@@ -5,14 +5,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/view_height"
         android:background="@color/view_background"/>
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        style="@style/WidthMatchHeightWrapHorizontal">
 
         <RadioButton
             style="@style/BottomBar"

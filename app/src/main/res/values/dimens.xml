@@ -11,5 +11,7 @@
     <dimen name="one_hundred_and_fifty">150dp</dimen>
     <dimen name="forty">40dp</dimen>
     <dimen name="twelve">12sp</dimen>
+    <dimen name="eighteen_size">18sp</dimen>
+    <dimen name="one_hundred_and_eighty">180dp</dimen>
 </resources>
     

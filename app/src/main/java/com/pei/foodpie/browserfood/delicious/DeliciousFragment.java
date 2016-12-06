@@ -21,7 +21,6 @@ import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 
 
-
 /**
  * Created by dllo on 16/11/23.
  */
@@ -47,7 +46,6 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
     @Override
     protected void initData() {
         getNetData();
-
     }
 
 
@@ -59,7 +57,6 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
         lv = bindView(R.id.swipe_target);
         adapter = new DeliciousAdapter();
         lv.setAdapter(adapter);
-
 
 
     }
@@ -122,8 +119,6 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
             }
         }, 2000);
     }
-
-
 
 
     private void getRefreshData() {

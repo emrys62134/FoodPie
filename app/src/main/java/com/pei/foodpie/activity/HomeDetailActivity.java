@@ -25,8 +25,15 @@ public class HomeDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        initViews();
+    }
 
+    @Override
+    protected void initData() {
 
+    }
+
+    private void initViews() {
         Intent intent = getIntent();
         String data = intent.getStringExtra("home");
 
@@ -40,10 +47,5 @@ public class HomeDetailActivity extends BaseActivity {
 
 
         webView.loadUrl(data);
-    }
-
-    @Override
-    protected void initData() {
-
     }
 }

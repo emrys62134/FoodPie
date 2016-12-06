@@ -13,7 +13,8 @@ import java.util.ArrayList;
 public class BrowserAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragments;
-    private String[] titles = {"首页","评测","知识","美食"};
+    private String[] titles = {"首页", "评测", "知识", "美食"};
+
     public void setFragments(ArrayList<Fragment> fragments) {
         this.fragments = fragments;
         notifyDataSetChanged();

@@ -101,6 +101,55 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <!--宽match 高0dp 权重1-->
+    <style name="WidthMatchAndHeightZeroWeightOne">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
 
+    <!--宽match 高wrap 方向 水平-->
+    <style name="WidthMatchHeightWrapHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--宽match 方向水平-->
+    <style name="WidthMatchAndHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--宽wrap 高0dp 权重1-->
+    <style name="WidthWrapAndHeightZeroWeightOne">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <!--宽0dp 高match 权重1-->
+    <style name="WidthZeroAndHeightMatchWeightOne">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--宽0dp 高wrap 权重1-->
+    <style name="WidthZeroAndHeightWrapWeightOne">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+
+
+    <!--分割线-->
+    <style name="DivideLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#000000</item>
+    </style>
 
 </resources>

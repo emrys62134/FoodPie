@@ -35,4 +35,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
+
+    compile 'com.github.razerdp:BasePopup:v1.4.3'
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
+
 }

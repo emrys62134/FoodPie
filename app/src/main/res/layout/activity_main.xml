@@ -7,17 +7,16 @@
     android:orientation="vertical"
     tools:context="com.pei.foodpie.activity.MainActivity">
 
+    <!--占位布局-->
     <FrameLayout
         android:id="@+id/fl"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
+        style="@style/WidthMatchAndHeightZeroWeightOne">
     </FrameLayout>
 
+
+    <!--底部radioButton-->
     <include
-        layout="@layout/bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        style="@style/WidthMatchAndHeightWrap"
+        layout="@layout/bottom_bar" />
 
 </LinearLayout>

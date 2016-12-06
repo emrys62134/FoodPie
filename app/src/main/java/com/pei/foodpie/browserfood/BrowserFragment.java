@@ -51,7 +51,6 @@ public class BrowserFragment extends BaseFragment {
     }
 
 
-
     private void initViews() {
         tabLayout = bindView(R.id.tab_browser);
         viewPager = bindView(R.id.vp_browser);

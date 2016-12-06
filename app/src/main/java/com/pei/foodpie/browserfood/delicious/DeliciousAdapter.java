@@ -88,8 +88,8 @@ public class DeliciousAdapter extends BaseAdapter {
                     convertView.setTag(secondViewHolder);
                     break;
             }
-        }else{
-            switch(type){
+        } else {
+            switch (type) {
                 case FIRST_TYPE:
                     firstViewHolder = (FirstViewHolder) convertView.getTag();
                     break;
@@ -98,7 +98,7 @@ public class DeliciousAdapter extends BaseAdapter {
                     break;
             }
         }
-        switch (type){
+        switch (type) {
             case FIRST_TYPE:
                 firstViewHolder.titleTv.setText(bean.getFeeds().get(i).getTitle());
                 firstViewHolder.userTv.setText(bean.getFeeds().get(i).getSource());
@@ -108,7 +108,7 @@ public class DeliciousAdapter extends BaseAdapter {
             case SECOND_TYPE:
                 secondViewHolder.titleTvS.setText(bean.getFeeds().get(i).getTitle());
                 secondViewHolder.userTvS.setText(bean.getFeeds().get(i).getSource());
-                secondViewHolder.countTvS.setText(bean.getFeeds().get(i).getItem_id()+"");
+                secondViewHolder.countTvS.setText(bean.getFeeds().get(i).getItem_id() + "");
                 Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(0)).into(secondViewHolder.ivOneS);
                 Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(1)).into(secondViewHolder.ivTwoS);
                 Picasso.with(mContext).load(bean.getFeeds().get(i).getImages().get(2)).into(secondViewHolder.ivThreeS);
@@ -122,6 +122,7 @@ public class DeliciousAdapter extends BaseAdapter {
         private TextView userTv;
         private TextView countTv;
         private ImageView pic;
+
         public FirstViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.title_knowledge);
             userTv = (TextView) view.findViewById(R.id.user_knowledge);
@@ -137,6 +138,7 @@ public class DeliciousAdapter extends BaseAdapter {
         private ImageView ivOneS;
         private ImageView ivTwoS;
         private ImageView ivThreeS;
+
         public SecondViewHolder(View view) {
 
             titleTvS = (TextView) view.findViewById(R.id.desc_knowledge_second);

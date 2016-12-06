@@ -11,7 +11,7 @@ import com.aspsine.swipetoloadlayout.SwipeTrigger;
  * Created by dllo on 16/11/30.
  */
 
-public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeLoadMoreTrigger{
+public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeLoadMoreTrigger {
 
 
     public LoadMoreFooterView(Context context) {
@@ -34,14 +34,14 @@ public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeL
 
     @Override
     public void onMove(int yScrolled, boolean isComplete, boolean automatic) {
-        if (!isComplete){
-            if (yScrolled <= -getHeight()){
+        if (!isComplete) {
+            if (yScrolled <= -getHeight()) {
                 setText("释放加载...");
-            }else{
+            } else {
                 setText("加载更多...");
             }
-        }else{
-            setText("恢复...");
+        } else {
+            setText("");
         }
     }
 

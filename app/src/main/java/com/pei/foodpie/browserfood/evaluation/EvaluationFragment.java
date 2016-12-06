@@ -14,12 +14,11 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.activity.CommonActivity;
+import com.pei.foodpie.utils.ClickListener;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.volleysingleton.MyApp;
 import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
-
-import java.util.List;
 
 /**
  * Created by dllo on 16/11/23.
@@ -31,7 +30,7 @@ public class EvaluationFragment extends BaseFragment implements ClickListener, O
     private SwipeToLoadLayout swipeToLoadLayout;
 
     private String newUrl;
-    private int i = 2;
+    private int i = 1;
     private EvaluationBean detail;
 
 
@@ -58,7 +57,6 @@ public class EvaluationFragment extends BaseFragment implements ClickListener, O
         getNetData();
 
     }
-
 
 
     private void initViews() {
@@ -90,12 +88,11 @@ public class EvaluationFragment extends BaseFragment implements ClickListener, O
     }
 
 
-
     @Override
     public void onClickListener(int position) {
-                Intent intent = new Intent(getActivity(), CommonActivity.class);
-                intent.putExtra("data", detail.getFeeds().get(position).getLink());
-                startActivity(intent);
+        Intent intent = new Intent(getActivity(), CommonActivity.class);
+        intent.putExtra("data", detail.getFeeds().get(position).getLink());
+        startActivity(intent);
 
     }
 
@@ -118,13 +115,12 @@ public class EvaluationFragment extends BaseFragment implements ClickListener, O
             @Override
             public void run() {
                 swipeToLoadLayout.setLoadingMore(false);
-                newUrl = Constant.EVALUATION_HEAD_URL + i + Constant.EVALUATION_FOOT_URL;
+                newUrl = Constant.EVALUATION_HEAD_URL + (i+1) + Constant.EVALUATION_FOOT_URL;
                 getLoadData();
                 i++;
             }
         }, 2000);
     }
-
 
 
     private void getRefreshData() {

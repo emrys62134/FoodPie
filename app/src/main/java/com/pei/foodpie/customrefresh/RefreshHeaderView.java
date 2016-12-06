@@ -11,7 +11,7 @@ import com.aspsine.swipetoloadlayout.SwipeTrigger;
  * Created by dllo on 16/11/30.
  */
 
-public class RefreshHeaderView extends TextView implements SwipeRefreshTrigger,SwipeTrigger {
+public class RefreshHeaderView extends TextView implements SwipeRefreshTrigger, SwipeTrigger {
     public RefreshHeaderView(Context context) {
         super(context);
     }
@@ -32,11 +32,11 @@ public class RefreshHeaderView extends TextView implements SwipeRefreshTrigger,S
 
     @Override
     public void onMove(int yScrolled, boolean isComplete, boolean automatic) {
-        if (!isComplete){
-            if (yScrolled >= getHeight()){
+        if (!isComplete) {
+            if (yScrolled >= getHeight()) {
                 setText("释放刷新...");
-            }else{
-                setText("恢复...");
+            } else {
+                setText("");
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.pei.foodpie.volleysingleton;
 
 
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
@@ -66,7 +65,7 @@ public class GsonRequest<T> extends Request<T> {
             String data = new String(response.data,
                     HttpHeaderParser.parseCharset(response.headers));
 
-            return Response.success(mGson.fromJson(data,mClass),
+            return Response.success(mGson.fromJson(data, mClass),
                     HttpHeaderParser.parseCacheHeaders(response));
 
         } catch (UnsupportedEncodingException e) {
@@ -89,10 +88,10 @@ public class GsonRequest<T> extends Request<T> {
 
     @Override
     public void deliverError(VolleyError error) {
-        if (error instanceof NoConnectionError){
+        if (error instanceof NoConnectionError) {
             Cache.Entry entry = this.getCacheEntry();
             Response<T> response = parseNetworkResponse(new NetworkResponse
-                    (entry.data,entry.responseHeaders));
+                    (entry.data, entry.responseHeaders));
             deliverResponse(response.result);
         }
         super.deliverError(error);

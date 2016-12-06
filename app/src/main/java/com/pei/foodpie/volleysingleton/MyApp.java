@@ -7,8 +7,8 @@ import android.content.Context;
  * Created by dllo on 16/11/28.
  */
 
-    // 定义一个全局的Context对象
-    // 在Application刚启动的时候就声明一个
+// 定义一个全局的Context对象
+// 在Application刚启动的时候就声明一个
 
 public class MyApp extends Application {
 

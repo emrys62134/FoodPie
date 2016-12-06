@@ -1,16 +1,21 @@
 package com.pei.foodpie.foodbaike;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.android.volley.VolleyError;
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.constant.Constant;
+import com.pei.foodpie.foodbaike.detail.FoodActivity;
 import com.pei.foodpie.volleysingleton.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,7 +33,7 @@ public class FoodBaiKeFragment extends BaseFragment {
     private ArrayList<HashMap<String, Object>> listItemFood = new ArrayList<HashMap<String, Object>>();
     private ArrayList<HashMap<String, Object>> listItemBrand = new ArrayList<HashMap<String, Object>>();
     private ArrayList<HashMap<String, Object>> listItemRestaurant = new ArrayList<HashMap<String, Object>>();
-
+    private FoodBaiKeBean bean;
 
     public static FoodBaiKeFragment newInstance() {
 
@@ -55,8 +60,6 @@ public class FoodBaiKeFragment extends BaseFragment {
     }
 
 
-
-
     private void initViews() {
         gvFood = bindView(R.id.gv_food);
         gvBrand = bindView(R.id.gv_brand);
@@ -68,6 +71,9 @@ public class FoodBaiKeFragment extends BaseFragment {
         VolleySingleton.MyRequest(Constant.FoodBaiKeUrl, FoodBaiKeBean.class, new NetListener<FoodBaiKeBean>() {
             @Override
             public void successListener(FoodBaiKeBean response) {
+
+                bean = response;
+
                 listItemFood = new ArrayList<HashMap<String, Object>>();
                 for (int i = 0; i < response.getGroup().get(0).getCategories().size(); i++) {
                     HashMap<String, Object> mapFood = new HashMap<>();
@@ -118,5 +124,57 @@ public class FoodBaiKeFragment extends BaseFragment {
             }
         });
 
+
+        gvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (bean.getGroup().get(0).getKind().equals("group")) {
+                    Intent intent = new Intent(getActivity(), FoodActivity.class);
+                    for (int j = 0; j < bean.getGroup().get(0).getCategories().get(i).getSub_category_count(); j++) {
+                        intent.putExtra("subId", bean.getGroup().get(0).getCategories().get(i).getSub_categories().get(j).getId());
+                        intent.putExtra("subName",bean.getGroup().get(0).getCategories().get(i).getSub_categories().get(j).getName());
+
+
+//                        intent.putExtra("subCount",bean.getGroup().get(0).getCategories().get(i).getSub_category_count());
+                        intent.putExtra("subCount",bean.getGroup().get(0).getCategories().get(j).getSub_categories().size());
+//
+                    }
+
+                    intent.putExtra("category", bean.getGroup().get(0).getKind());
+                    intent.putExtra("name", bean.getGroup().get(0).getCategories().get(i).getName());
+                    intent.putExtra("id", bean.getGroup().get(0).getCategories().get(i).getId());
+
+                    startActivity(intent);
+                }
+
+
+            }
+        });
+
+        gvBrand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (bean.getGroup().get(1).getKind().equals("brand")) {
+                    Intent intent = new Intent(getActivity(), FoodActivity.class);
+                    intent.putExtra("category", bean.getGroup().get(1).getKind());
+                    intent.putExtra("name", bean.getGroup().get(1).getCategories().get(i).getName());
+                    intent.putExtra("id", bean.getGroup().get(1).getCategories().get(i).getId());
+                    startActivity(intent);
+                }
+            }
+        });
+        gvRestaurant.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (bean.getGroup().get(2).getKind().equals("restaurant")) {
+                    Intent intent = new Intent(getActivity(), FoodActivity.class);
+                    intent.putExtra("category", bean.getGroup().get(2).getKind());
+                    intent.putExtra("name", bean.getGroup().get(2).getCategories().get(i).getName());
+                    intent.putExtra("id", bean.getGroup().get(2).getCategories().get(i).getId());
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }

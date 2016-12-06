@@ -18,13 +18,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
     }
 
-       protected abstract int setLayout();
+    protected abstract int setLayout();
 
-       protected abstract void initView();
+    protected abstract void initView();
 
-       protected abstract void initData();
+    protected abstract void initData();
 
-    public <T extends View> T bindView(int id){
-        return (T)findViewById(id);
+    public <T extends View> T bindView(int id) {
+        return (T) findViewById(id);
     }
 }
