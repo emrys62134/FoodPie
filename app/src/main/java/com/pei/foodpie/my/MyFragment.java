@@ -48,28 +48,6 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     protected void initData() {
 
     }
-
-    private void initViews() {
-        // 设置按钮
-        settingIB = bindView(R.id.setting_my);
-        // 登录按钮
-        Button login = bindView(R.id.login_btn);
-
-        // 相对布局: 我的照片 我的收藏 上传食物数据 我的订单
-        rlPhoto = bindView(R.id.rl_photo);
-        rlCollection = bindView(R.id.rl_collection);
-        rlUpload = bindView(R.id.rl_upload);
-        rlOrder = bindView(R.id.rl_order);
-
-        rlPhoto.setOnClickListener(this);
-        rlCollection.setOnClickListener(this);
-        rlUpload.setOnClickListener(this);
-        rlOrder.setOnClickListener(this);
-
-        settingIB.setOnClickListener(this);
-        login.setOnClickListener(this);
-    }
-
     @Override
     public void onClick(View view) {
 
@@ -101,5 +79,27 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(intentLogin);
                 break;
         }
+    }
+
+
+    private void initViews() {
+        // 设置按钮
+        settingIB = bindView(R.id.setting_my);
+        // 登录按钮
+        Button login = bindView(R.id.login_btn);
+
+        // 相对布局: 我的照片 我的收藏 上传食物数据 我的订单
+        rlPhoto = bindView(R.id.rl_photo);
+        rlCollection = bindView(R.id.rl_collection);
+        rlUpload = bindView(R.id.rl_upload);
+        rlOrder = bindView(R.id.rl_order);
+
+        rlPhoto.setOnClickListener(this);
+        rlCollection.setOnClickListener(this);
+        rlUpload.setOnClickListener(this);
+        rlOrder.setOnClickListener(this);
+
+        settingIB.setOnClickListener(this);
+        login.setOnClickListener(this);
     }
 }

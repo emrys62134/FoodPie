@@ -13,8 +13,8 @@ import com.pei.foodpie.R;
 import com.pei.foodpie.activity.SearchActivity;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.constant.Constant;
-import com.pei.foodpie.foodbaike.detail.FoodActivity;
-import com.pei.foodpie.volleysingleton.NetListener;
+import com.pei.foodpie.activity.FoodBaiKeDetailActivity;
+import com.pei.foodpie.utils.NetListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 
 import java.util.ArrayList;
@@ -25,17 +25,22 @@ import java.util.HashMap;
  */
 public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListener {
 
+    // 食物分类
     private GridView gvFood;
-    private GridView gvBrand;
-    private GridView gvRestaurant;
     private FoodCategoryAdapter categoryAdapter;
+    // 热门品牌
+    private GridView gvBrand;
     private FoodBrandAdapter brandAdapter;
+    // 餐饮连锁
+    private GridView gvRestaurant;
     private FoodRestaurantAdapter restaurantAdapter;
+
     private ArrayList<HashMap<String, Object>> listItemFood = new ArrayList<HashMap<String, Object>>();
     private ArrayList<HashMap<String, Object>> listItemBrand = new ArrayList<HashMap<String, Object>>();
     private ArrayList<HashMap<String, Object>> listItemRestaurant = new ArrayList<HashMap<String, Object>>();
     private FoodBaiKeBean bean;
 
+    // 创建FoodBaiKeFragment实例
     public static FoodBaiKeFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -43,7 +48,6 @@ public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListe
         fragment.setArguments(args);
         return fragment;
     }
-
 
     @Override
     protected int setLayout() {
@@ -58,6 +62,18 @@ public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListe
     @Override
     protected void initData() {
         getNetData();
+        onItemClickListener();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_search:
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+
+                break;
+        }
     }
 
 
@@ -129,11 +145,16 @@ public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListe
         });
 
 
+
+    }
+
+
+    private void onItemClickListener() {
         gvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (bean.getGroup().get(0).getKind().equals("group")) {
-                    Intent intent = new Intent(getActivity(), FoodActivity.class);
+                    Intent intent = new Intent(getActivity(), FoodBaiKeDetailActivity.class);
                     intent.putExtra("object", bean);
                     intent.putExtra("category", bean.getGroup().get(0).getKind());
                     intent.putExtra("name", bean.getGroup().get(0).getCategories().get(i).getName());
@@ -148,7 +169,7 @@ public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (bean.getGroup().get(1).getKind().equals("brand")) {
-                    Intent intent = new Intent(getActivity(), FoodActivity.class);
+                    Intent intent = new Intent(getActivity(), FoodBaiKeDetailActivity.class);
                     intent.putExtra("category", bean.getGroup().get(1).getKind());
                     intent.putExtra("name", bean.getGroup().get(1).getCategories().get(i).getName());
                     intent.putExtra("id", bean.getGroup().get(1).getCategories().get(i).getId());
@@ -160,7 +181,7 @@ public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (bean.getGroup().get(2).getKind().equals("restaurant")) {
-                    Intent intent = new Intent(getActivity(), FoodActivity.class);
+                    Intent intent = new Intent(getActivity(), FoodBaiKeDetailActivity.class);
                     intent.putExtra("category", bean.getGroup().get(2).getKind());
                     intent.putExtra("name", bean.getGroup().get(2).getCategories().get(i).getName());
                     intent.putExtra("id", bean.getGroup().get(2).getCategories().get(i).getId());
@@ -168,16 +189,5 @@ public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListe
                 }
             }
         });
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_search:
-                Intent intent = new Intent(getActivity(),SearchActivity.class);
-                startActivity(intent);
-
-                break;
-        }
     }
 }

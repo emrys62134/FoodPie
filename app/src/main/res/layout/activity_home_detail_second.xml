@@ -82,7 +82,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="@dimen/ten"
             android:scaleType="fitEnd"
-            android:src="@mipmap/ic_home_agree" />
+            android:src="@mipmap/ic_photo_agree" />
 
         <TextView
             android:id="@+id/like_detail_home_second"

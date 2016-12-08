@@ -13,6 +13,8 @@ import com.pei.foodpie.base.BaseActivity;
  * Created by dllo on 16/12/7.
  */
 
+// 欢迎页
+
 public class WelcomeActivity extends BaseActivity {
 
     private ImageView iv;
@@ -29,6 +31,12 @@ public class WelcomeActivity extends BaseActivity {
         initViews();
         timer.start();
     }
+
+    @Override
+    protected void initData() {
+
+    }
+
 
     private void initViews() {
         iv = bindView(R.id.iv_welcome);
@@ -59,13 +67,6 @@ public class WelcomeActivity extends BaseActivity {
                 finish();
             }
         };
-
-    }
-
-
-
-    @Override
-    protected void initData() {
 
     }
 }

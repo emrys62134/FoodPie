@@ -147,6 +147,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/me.shaohui/bottomdialog/1.1.9/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="868c991077c574f6ff2b324b1032ee30a1bccd93">
+        <dex dex="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/pre-dexed/debug/me.shaohui-bottomdialog-1.1.9_13d269a64ce1eec180fb61dc99fbbbc752ccdc39.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/dllo/Desktop/GitDemo/FoodPie/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="false"
         optimize="true"

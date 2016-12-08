@@ -22,13 +22,13 @@
 
         <activity android:name=".activity.LoginActivity"/>
 
-        <activity android:name=".activity.CommonActivity"/>
+        <activity android:name=".activity.BrowserDetailCommonActivity"/>
 
-        <activity android:name=".activity.HomeDetailActivity"/>
+        <activity android:name=".activity.BrowserHomeDetailActivity"/>
 
-        <activity android:name=".activity.HomeDetailSecondActivity"/>
+        <activity android:name=".activity.BrowserHomeDetailSecondActivity"/>
 
-        <activity android:name=".foodbaike.detail.FoodActivity"/>
+        <activity android:name=".activity.FoodBaiKeDetailActivity"/>
 
         <activity android:name=".activity.MainActivity"/>
 

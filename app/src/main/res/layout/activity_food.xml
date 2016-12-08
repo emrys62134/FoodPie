@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:clipToPadding="true"
     android:orientation="vertical">
 
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -15,8 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#ffffff"
+            android:layout_height="50dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -64,7 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:padding="10dp"
-            android:background="#ffffff"
             android:orientation="horizontal">
 
             <Button
@@ -86,19 +84,12 @@
                 android:src="@mipmap/ic_food_arrow_ordering" />
 
 
-            <Button
-                android:id="@+id/btn_order_by"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="由高到底"
-                android:background="@null"
-                android:visibility="invisible"
-                android:drawableRight="@mipmap/ic_arrow_down_selected"
-                />
+
 
         </LinearLayout>
 
         <View style="@style/DivideLine" />
+
 
         <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
             android:layout_width="match_parent"
@@ -106,7 +97,6 @@
             android:id="@+id/rv_detail_food">
 
         </com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
-
 
     </LinearLayout>
 

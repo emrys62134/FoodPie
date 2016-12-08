@@ -8,9 +8,9 @@ import android.widget.RadioButton;
 
 
 import com.pei.foodpie.R;
-import com.pei.foodpie.foodtext.FoodFragment;
+
 import com.pei.foodpie.base.BaseActivity;
-import com.pei.foodpie.browserfood.BrowserFragment;
+import com.pei.foodpie.browser.BrowserFragment;
 import com.pei.foodpie.foodbaike.FoodBaiKeFragment;
 import com.pei.foodpie.my.MyFragment;
 
@@ -40,6 +40,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onClick(View view) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        switch (view.getId()) {
+            case R.id.rb_food_bai_ke:
+                transaction.replace(R.id.fl, foodBaiKeFragment);
+                break;
+            case R.id.rb_browser:
+                transaction.replace(R.id.fl, browserFragment);
+                break;
+            case R.id.rb_my:
+                transaction.replace(R.id.fl, myFragment);
+                break;
+        }
+        transaction.commit();
+    }
+
+
 
     private void initViews() {
 
@@ -59,24 +78,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fl, foodBaiKeFragment);
-        transaction.commit();
-    }
-
-    @Override
-    public void onClick(View view) {
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        switch (view.getId()) {
-            case R.id.rb_food_bai_ke:
-                transaction.replace(R.id.fl, foodBaiKeFragment);
-                break;
-            case R.id.rb_browser:
-                transaction.replace(R.id.fl, browserFragment);
-                break;
-            case R.id.rb_my:
-                transaction.replace(R.id.fl, myFragment);
-                break;
-        }
         transaction.commit();
     }
 }

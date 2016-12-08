@@ -39,4 +39,6 @@ dependencies {
     compile 'com.github.razerdp:BasePopup:v1.4.3'
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
 
+    compile 'me.shaohui:bottomdialog:1.1.9'
+
 }

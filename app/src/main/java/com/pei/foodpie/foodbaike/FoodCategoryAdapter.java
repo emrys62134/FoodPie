@@ -38,16 +38,14 @@ public class FoodCategoryAdapter extends BaseAdapter {
 
     }
 
-
-
     @Override
     public int getCount() {
-        return list== null ? 0 : list.size();
+        return list == null ? 0 : list.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return list== null ? null : list.get(i);
+        return list == null ? null : list.get(i);
     }
 
     @Override
@@ -66,9 +64,9 @@ public class FoodCategoryAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        Map<String,Object> map = list.get(i);
+        Map<String, Object> map = list.get(i);
         Picasso.with(mContext).load((String) map.get("itemImageFood")).into(viewHolder.iv);
-        viewHolder.tv.setText(map.get("itemTextFood")+"");
+        viewHolder.tv.setText(map.get("itemTextFood") + "");
 
         return view;
     }
