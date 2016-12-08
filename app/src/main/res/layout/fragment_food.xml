@@ -57,13 +57,15 @@
                     android:src="@mipmap/ic_home_search"
                     android:layout_centerVertical="true"/>
 
-                <EditText
+                <Button
+                    android:id="@+id/btn_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="40dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:drawableLeft="@mipmap/ic_home_search"
                     android:hint="请输入食物名称"
+                    android:textSize="18sp"
                     android:background="#ffffff"
                     android:textColor="#ea8b51"/>
 

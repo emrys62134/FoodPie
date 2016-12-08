@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
     android:orientation="vertical">
 
 
@@ -13,11 +15,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
+            android:layout_height="40dp"
+            android:background="#ffffff"
             android:orientation="horizontal">
 
             <ImageView
+                android:padding="10dp"
                 android:id="@+id/back_detail_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -25,6 +28,7 @@
                 android:src="@mipmap/ic_back_dark_center" />
 
             <TextView
+                android:padding="10dp"
                 android:id="@+id/title_detail_food"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -35,6 +39,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:padding="10dp"
                 android:id="@+id/tv_all_right_pop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,6 +48,7 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:padding="10dp"
                 android:id="@+id/iv_all_right_pop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,8 +62,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_margin="10dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:background="#ffffff"
             android:orientation="horizontal">
 
             <Button
@@ -70,11 +77,24 @@
 
             <ImageView
                 android:id="@+id/iv_order_arrow_down"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:paddingRight="150dp"
                 android:layout_marginLeft="5dp"
+                android:layout_weight="1"
                 android:src="@mipmap/ic_food_arrow_ordering" />
+
+
+            <Button
+                android:id="@+id/btn_order_by"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="由高到底"
+                android:background="@null"
+                android:visibility="invisible"
+                android:drawableRight="@mipmap/ic_arrow_down_selected"
+                />
 
         </LinearLayout>
 

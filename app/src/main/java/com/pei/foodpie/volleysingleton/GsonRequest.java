@@ -90,7 +90,8 @@ public class GsonRequest<T> extends Request<T> {
     public void deliverError(VolleyError error) {
         if (error instanceof NoConnectionError) {
             Cache.Entry entry = this.getCacheEntry();
-            Response<T> response = parseNetworkResponse(new NetworkResponse
+            Response<T> response = parseNetworkResponse
+                    (new NetworkResponse
                     (entry.data, entry.responseHeaders));
             deliverResponse(response.result);
         }

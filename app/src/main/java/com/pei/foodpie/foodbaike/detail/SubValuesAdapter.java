@@ -8,8 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pei.foodpie.R;
+import com.pei.foodpie.foodbaike.FoodBaiKeBean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dllo on 16/12/6.

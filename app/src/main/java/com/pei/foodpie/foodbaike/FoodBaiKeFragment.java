@@ -3,13 +3,14 @@ package com.pei.foodpie.foodbaike;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.android.volley.VolleyError;
 import com.pei.foodpie.R;
+import com.pei.foodpie.activity.SearchActivity;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.foodbaike.detail.FoodActivity;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 /**
  * Created by dllo on 16/11/22.
  */
-public class FoodBaiKeFragment extends BaseFragment {
+public class FoodBaiKeFragment extends BaseFragment implements View.OnClickListener {
 
     private GridView gvFood;
     private GridView gvBrand;
@@ -61,6 +62,9 @@ public class FoodBaiKeFragment extends BaseFragment {
 
 
     private void initViews() {
+        Button searchBtn = bindView(R.id.btn_search);
+        searchBtn.setOnClickListener(this);
+
         gvFood = bindView(R.id.gv_food);
         gvBrand = bindView(R.id.gv_brand);
         gvRestaurant = bindView(R.id.gv_restaurant);
@@ -128,26 +132,14 @@ public class FoodBaiKeFragment extends BaseFragment {
         gvFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                 if (bean.getGroup().get(0).getKind().equals("group")) {
                     Intent intent = new Intent(getActivity(), FoodActivity.class);
-                    for (int j = 0; j < bean.getGroup().get(0).getCategories().get(i).getSub_category_count(); j++) {
-                        intent.putExtra("subId", bean.getGroup().get(0).getCategories().get(i).getSub_categories().get(j).getId());
-                        intent.putExtra("subName",bean.getGroup().get(0).getCategories().get(i).getSub_categories().get(j).getName());
-
-
-//                        intent.putExtra("subCount",bean.getGroup().get(0).getCategories().get(i).getSub_category_count());
-                        intent.putExtra("subCount",bean.getGroup().get(0).getCategories().get(j).getSub_categories().size());
-//
-                    }
-
+                    intent.putExtra("object", bean);
                     intent.putExtra("category", bean.getGroup().get(0).getKind());
                     intent.putExtra("name", bean.getGroup().get(0).getCategories().get(i).getName());
                     intent.putExtra("id", bean.getGroup().get(0).getCategories().get(i).getId());
-
                     startActivity(intent);
                 }
-
 
             }
         });
@@ -176,5 +168,16 @@ public class FoodBaiKeFragment extends BaseFragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_search:
+                Intent intent = new Intent(getActivity(),SearchActivity.class);
+                startActivity(intent);
+
+                break;
+        }
     }
 }

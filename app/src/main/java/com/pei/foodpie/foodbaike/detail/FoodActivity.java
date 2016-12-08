@@ -1,6 +1,7 @@
 package com.pei.foodpie.foodbaike.detail;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Interpolator;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -15,6 +18,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.pei.foodpie.foodbaike.FoodBaiKeBean;
 import com.pei.foodpie.utils.DividerItemDecoration;
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseActivity;
@@ -41,16 +45,17 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
     private String subValueUrl = "(&sub_value=";
     private String subValueEndUrl = ")&order_by=1&page=";
 
-    //            http://food.boohee.com/fb/v1/foods?kind=group&value=1(&sub_value=13)&order_by=1&page=1&order_asc=0
+    private String highToLowUrl ="http://food.boohee.com/fb/v1/foods?kind=group&value=1(&sub_value=13)&order_by=1&page=1&order_asc=0";
+    private String lowToHigh ="http://food.boohee.com/fb/v1/foods?kind=group&value=1(&sub_value=13)&order_by=1&page=1&order_asc=1";
     private DetailAdapter adapter;
     private Button order;
     private String orderUrl = "http://food.boohee.com/fb/v1/foods/sort_types";
+
     private OrderAdapter orderAdapter;
     private TextView tvAll;
     private ImageView ivRight;
     private String category;
     private int id;
-    private int subId;
 
 
     private PopupWindow popupWindow;
@@ -61,9 +66,15 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
     private String compositionUrl;
     private String rightPopListUrl;
     private SubValuesAdapter subValuesAdapter;
-    private String subName;
-    private int subCount;
+
     private ArrayList<String> arrayList;
+    private String name;
+    private FoodBaiKeBean bean;
+    private DetailBean detailBean;
+    private int subId;
+    private Button orderBy;
+
+    private boolean itemClick = false;
 
 
     @Override
@@ -85,34 +96,50 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
         order.setOnClickListener(this);
         previous.setOnClickListener(this);
         ivOrder = bindView(R.id.iv_order_arrow_down);
-
         tvAll = bindView(R.id.tv_all_right_pop);
         ivRight = bindView(R.id.iv_all_right_pop);
 
+        orderBy = bindView(R.id.btn_order_by);
+
+
+
         Intent intent = getIntent();
         category = intent.getStringExtra("category");
-        String name = intent.getStringExtra("name");
-        subId = intent.getIntExtra("subId", 0);
+        name = intent.getStringExtra("name");
         id = intent.getIntExtra("id", 0);
-        subName = intent.getStringExtra("subName");
+        bean = intent.getParcelableExtra("object");
 
 
-        subCount = intent.getIntExtra("subCount",0);
+
+
         arrayList = new ArrayList<>();
-        for (int j = 0; j < subCount ; j++) {
-            arrayList.add(subName);
-        }
+        arrayList.add("全部");
 
-
-
-
+//        for (int j = 0; j < bean.getGroup().get(0).getCategories().get(id-1).getSub_categories().size(); j++) {
+//
+//            arrayList.add(bean.getGroup().get(0).getCategories().get(id-1).getSub_categories().get(j).getName());
+//            subId = bean.getGroup().get(0).getCategories().get(id-1).getSub_categories().get(j).getId();
+//
+//        }
 
 
         TextView title = bindView(R.id.title_detail_food);
         title.setText(name);
 
-
         newUrl = headerUrl + category + footUrl + id;
+        Log.d("FoodActivity", newUrl);
+        refreshAndLoadMore();
+
+        if (category.equals("group")) {
+            tvAll.setText("全部");
+            ivRight.setImageResource(R.mipmap.ic_food_arrow_ordering);
+            tvAll.setOnClickListener(this);
+        }
+
+
+    }
+
+    private void refreshAndLoadMore() {
         adapter = new DetailAdapter(this);
         rv.setAdapter(adapter);
         rv.setLinearLayout();
@@ -146,14 +173,6 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
                 }, 2000);
             }
         });
-
-        if (category.equals("group")) {
-            tvAll.setText("全部");
-            ivRight.setImageResource(R.mipmap.ic_food_arrow_ordering);
-            tvAll.setOnClickListener(this);
-        }
-
-
     }
 
     private void getDetailLoadData() {
@@ -177,6 +196,7 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void successListener(DetailBean response) {
                 adapter.setBean(response);
+//                detailBean = response;
 
             }
 
@@ -212,7 +232,6 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
         rightPop.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         View view = LayoutInflater.from(this).inflate(R.layout.right_pop_food_detail, null);
 
-        //TODO 食物百科 右侧popup 未获取弹出name
 
         ListView rightList = (ListView) view.findViewById(R.id.lv_pop_right_food_detail);
         subValuesAdapter = new SubValuesAdapter(this);
@@ -220,14 +239,57 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
         rightPop.setContentView(view);
         rightPop.setOutsideTouchable(true);
         rightList.setAdapter(subValuesAdapter);
-
-//        rightPopListUrl = headerUrl + category + footUrl + id + subValueUrl + subId + subValueEndUrl + endUrl;
-
-
+        rightPopListUrl = headerUrl + category + footUrl + id + subValueUrl + subId + subValueEndUrl + endUrl;
         rightPop.showAsDropDown(tvAll);
 
+
+        rightList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                if (i == 0){
+//                    getRightPopAllData();
+//                }else{
+//                    getRightPopSubData();
+//                }
+            }
+        });
     }
 
+    private void getRightPopSubData() {
+        VolleySingleton.MyRequest(rightPopListUrl, DetailBean.class, new NetListener<DetailBean>() {
+            @Override
+            public void successListener(DetailBean response) {
+                //TODO 右侧pop item点击事件未完成
+
+                DetailBean data = response;
+                if (data == null){
+
+                }
+
+
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
+    }
+
+    private void getRightPopAllData() {
+        VolleySingleton.MyRequest(newUrl, DetailBean.class, new NetListener<DetailBean>() {
+            @Override
+            public void successListener(DetailBean response) {
+
+                adapter.setBean(response);
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
+    }
 
 
     private void initLeftArrow() {
@@ -255,6 +317,8 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
         orderAdapter.setMyClickListener(this);
         rv.setLayoutManager(new GridLayoutManager(this, 3));
         popupWindow.setContentView(view);
+        ColorDrawable cd = new ColorDrawable(000000);
+        popupWindow.setBackgroundDrawable(cd);
         popupWindow.setOutsideTouchable(true);
         popupWindow.showAsDropDown(order, 0, 30);
 
@@ -284,6 +348,18 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void successListener(DetailBean response) {
                 adapter.setBean(response);
+                itemClick = true;
+                orderBy.setVisibility(View.VISIBLE);
+                orderBy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        getHighToLowData();
+                        orderBy.setText("由低到高");
+
+
+
+                    }
+                });
             }
 
             @Override
@@ -292,5 +368,21 @@ public class FoodActivity extends BaseActivity implements View.OnClickListener, 
             }
         });
 
+    }
+
+
+
+    private void getHighToLowData() {
+        VolleySingleton.MyRequest(highToLowUrl, DetailBean.class, new NetListener<DetailBean>() {
+            @Override
+            public void successListener(DetailBean response) {
+                adapter.setBean(response);
+            }
+
+            @Override
+            public void errorListener(VolleyError error) {
+
+            }
+        });
     }
 }
