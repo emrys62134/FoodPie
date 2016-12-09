@@ -23,6 +23,8 @@ public class Constant {
 
     public static final String FOOD_DETAIL_TAIL = "&order_asc=0";
 
+    public static final String FOOD_SEARCH_BEFORE = "http://food.boohee.com/fb/v1/keywords?token=&user_key=&app_version=2.6";
+
 
 
 

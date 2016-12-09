@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pei.foodpie.R;
@@ -57,14 +58,21 @@ public class SubValuesAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.tv.setText(arrayList.get(i));
+        viewHolder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return view;
     }
 
     class ViewHolder {
         private TextView tv;
-
+        private LinearLayout ll;
         public ViewHolder(View view) {
             tv = (TextView) view.findViewById(R.id.tv_item_right_pop);
+            ll = (LinearLayout) view.findViewById(R.id.ll_pop_right);
         }
     }
 }
