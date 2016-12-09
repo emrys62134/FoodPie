@@ -1,12 +1,15 @@
 package com.pei.foodpie.foodbaike.detail;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by dllo on 16/12/3.
  */
 
-public class DetailBean {
+public class DetailBean implements Parcelable {
 
     /**
      * page : 1
@@ -17,6 +20,24 @@ public class DetailBean {
     private int page;
     private int total_pages;
     private List<FoodsBeanDetail> foods;
+
+    protected DetailBean(Parcel in) {
+        page = in.readInt();
+        total_pages = in.readInt();
+        foods = in.createTypedArrayList(FoodsBeanDetail.CREATOR);
+    }
+
+    public static final Creator<DetailBean> CREATOR = new Creator<DetailBean>() {
+        @Override
+        public DetailBean createFromParcel(Parcel in) {
+            return new DetailBean(in);
+        }
+
+        @Override
+        public DetailBean[] newArray(int size) {
+            return new DetailBean[size];
+        }
+    };
 
     public int getPage() {
         return page;
@@ -42,7 +63,19 @@ public class DetailBean {
         this.foods = foods;
     }
 
-    public static class FoodsBeanDetail {
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(page);
+        parcel.writeInt(total_pages);
+        parcel.writeTypedList(foods);
+    }
+
+    public static class FoodsBeanDetail implements Parcelable{
         /**
          * id : 1163
          * code : yanmaipian
@@ -104,6 +137,50 @@ public class DetailBean {
         private String copper;
         private String manganese;
         private String cholesterol;
+
+        protected FoodsBeanDetail(Parcel in) {
+            id = in.readInt();
+            code = in.readString();
+            name = in.readString();
+            thumb_image_url = in.readString();
+            is_liquid = in.readByte() != 0;
+            health_light = in.readInt();
+            weight = in.readString();
+            calory = in.readString();
+            fat = in.readString();
+            protein = in.readString();
+            fiber_dietary = in.readString();
+            carbohydrate = in.readString();
+            vitamin_a = in.readString();
+            thiamine = in.readString();
+            lactoflavin = in.readString();
+            vitamin_c = in.readString();
+            vitamin_e = in.readString();
+            niacin = in.readString();
+            natrium = in.readString();
+            calcium = in.readString();
+            iron = in.readString();
+            kalium = in.readString();
+            iodine = in.readString();
+            zinc = in.readString();
+            selenium = in.readString();
+            magnesium = in.readString();
+            copper = in.readString();
+            manganese = in.readString();
+            cholesterol = in.readString();
+        }
+
+        public static final Creator<FoodsBeanDetail> CREATOR = new Creator<FoodsBeanDetail>() {
+            @Override
+            public FoodsBeanDetail createFromParcel(Parcel in) {
+                return new FoodsBeanDetail(in);
+            }
+
+            @Override
+            public FoodsBeanDetail[] newArray(int size) {
+                return new FoodsBeanDetail[size];
+            }
+        };
 
         public int getId() {
             return id;
@@ -335,6 +412,44 @@ public class DetailBean {
 
         public void setCholesterol(String cholesterol) {
             this.cholesterol = cholesterol;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeInt(id);
+            parcel.writeString(code);
+            parcel.writeString(name);
+            parcel.writeString(thumb_image_url);
+            parcel.writeByte((byte) (is_liquid ? 1 : 0));
+            parcel.writeInt(health_light);
+            parcel.writeString(weight);
+            parcel.writeString(calory);
+            parcel.writeString(fat);
+            parcel.writeString(protein);
+            parcel.writeString(fiber_dietary);
+            parcel.writeString(carbohydrate);
+            parcel.writeString(vitamin_a);
+            parcel.writeString(thiamine);
+            parcel.writeString(lactoflavin);
+            parcel.writeString(vitamin_c);
+            parcel.writeString(vitamin_e);
+            parcel.writeString(niacin);
+            parcel.writeString(natrium);
+            parcel.writeString(calcium);
+            parcel.writeString(iron);
+            parcel.writeString(kalium);
+            parcel.writeString(iodine);
+            parcel.writeString(zinc);
+            parcel.writeString(selenium);
+            parcel.writeString(magnesium);
+            parcel.writeString(copper);
+            parcel.writeString(manganese);
+            parcel.writeString(cholesterol);
         }
     }
 }

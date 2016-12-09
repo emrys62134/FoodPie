@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,12 +23,14 @@ import com.pei.foodpie.foodbaike.detail.DetailBean;
 import com.pei.foodpie.foodbaike.detail.leftpop.OrderAdapter;
 import com.pei.foodpie.foodbaike.detail.leftpop.OrderBean;
 import com.pei.foodpie.foodbaike.detail.rightpop.SubValuesAdapter;
+import com.pei.foodpie.utils.ClickListener;
 import com.pei.foodpie.utils.DividerItemDecoration;
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseActivity;
 
 import com.pei.foodpie.utils.MyClickListener;
 import com.pei.foodpie.utils.NetListener;
+import com.pei.foodpie.utils.ThirdClickListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
@@ -38,7 +39,7 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/12/2.
  */
-public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClickListener, MyClickListener {
+public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClickListener, MyClickListener, ThirdClickListener {
 
 
     // 上拉加载网址拼接
@@ -140,6 +141,7 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
 
         orderBtn.setOnClickListener(this);
         previous.setOnClickListener(this);
+
 
 
     }
@@ -306,6 +308,10 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
         rv.setAdapter(adapter);
         rv.setLinearLayout();
         rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+
+        //TODO
+        adapter.setThirdClickListener(this);
+
         rv.setPullRefreshEnable(false);
         rv.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
 
@@ -372,4 +378,11 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
     }
 
 
+    @Override
+    public void onClickSendBean(int position, DetailBean bean) {
+        Intent intent = new Intent(FoodBaiKeDetailActivity.this,FoodBaiKeSecondActivity.class);
+        intent.putExtra("detailBean",bean);
+        intent.putExtra("position",position);
+        startActivity(intent);
+    }
 }

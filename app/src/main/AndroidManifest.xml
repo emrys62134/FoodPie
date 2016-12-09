@@ -34,6 +34,8 @@
 
         <activity android:name=".activity.SearchActivity"/>
 
+        <activity android:name=".activity.FoodBaiKeSecondActivity"/>
+
     </application>
 
 </manifest>

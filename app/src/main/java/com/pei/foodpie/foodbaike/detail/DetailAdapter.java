@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pei.foodpie.R;
+import com.pei.foodpie.utils.ClickListener;
+import com.pei.foodpie.utils.MyClickListener;
+import com.pei.foodpie.utils.ThirdClickListener;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -23,6 +26,13 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
 
     private Context mContext;
     private DetailBean bean;
+    private ThirdClickListener thirdClickListener;
+
+
+    public void setThirdClickListener(ThirdClickListener thirdClickListener) {
+        this.thirdClickListener = thirdClickListener;
+        notifyDataSetChanged();
+    }
 
     public void setBean(DetailBean bean) {
         this.bean = bean;
@@ -48,7 +58,13 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                thirdClickListener.onClickSendBean(position,bean);
+            }
+        });
         Picasso.with(mContext).load(bean.getFoods().get(position).getThumb_image_url()).into(holder.icon);
         holder.title.setText(bean.getFoods().get(position).getName());
         holder.content.setText(bean.getFoods().get(position).getCalory() + "千卡/100克");
