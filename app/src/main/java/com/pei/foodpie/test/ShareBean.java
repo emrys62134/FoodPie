@@ -1,4 +1,4 @@
-package com.pei.foodpie.browser;
+package com.pei.foodpie.test;
 
 import com.pei.foodpie.R;
 
