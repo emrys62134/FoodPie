@@ -173,7 +173,7 @@
         <!--食物分类-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="420dp"
+            android:layout_height="470dp"
             android:orientation="vertical"
             android:layout_margin="20dp"
             android:background="#ffffff">
@@ -202,7 +202,7 @@
         <!---->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="370dp"
+            android:layout_height="420dp"
             android:orientation="vertical"
             android:layout_margin="20dp"
             android:background="#ffffff">

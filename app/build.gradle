@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 24
@@ -16,6 +17,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    greendao{
+        schemaVersion 1
+        targetGenDir 'src/main/java'
     }
 }
 
@@ -36,6 +41,13 @@ dependencies {
     compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
     compile 'com.github.razerdp:BasePopup:v1.4.3'
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
-    compile 'me.shaohui:bottomdialog:1.1.9'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'com.github.userswlwork:pull-to-refresh:1.0.0'
+    compile files('libs/MobCommons-2016.1107.1809.jar')
+    compile files('libs/MobTools-2016.1107.1809.jar')
+    compile files('libs/ShareSDK-Core-2.7.10.jar')
+    compile files('libs/ShareSDK-QQ-2.7.10.jar')
+    compile files('libs/ShareSDK-QZone-2.7.10.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.7.10.jar')
 }

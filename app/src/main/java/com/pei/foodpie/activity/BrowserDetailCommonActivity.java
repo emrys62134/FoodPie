@@ -1,24 +1,19 @@
 package com.pei.foodpie.activity;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseActivity;
-import com.pei.foodpie.browser.ShareAdapter;
-import com.pei.foodpie.browser.ShareBean;
-import com.pei.foodpie.volleysingleton.MyApp;
 
-import me.shaohui.bottomdialog.BottomDialog;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 
 /**
@@ -50,6 +45,7 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
     }
     @Override
     protected void initData() {
+        ShareSDK.initSDK(this);
         getNetData(url);
     }
 
@@ -73,6 +69,7 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
         webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setCacheMode(webSettings.LOAD_CACHE_ELSE_NETWORK);
+        webSettings.setPluginState(WebSettings.PluginState.ON);
 
 
         webView.loadUrl(url);
@@ -82,21 +79,8 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.ll_share:
-                BottomDialog.create(getSupportFragmentManager()).setViewListener(new BottomDialog.ViewListener() {
-                    @Override
-                    public void bindView(View v) {
 
-                        // 初始化分享控件
-                        initDialogViews(v);
-                        // 给分享item设置监听
-                        initDialogOnClickListener();
-
-
-
-                        // TODO
-                    }
-
-                }).setLayoutRes(R.layout.share_layout).show();
+                showShare();
                 break;
             case R.id.back_detail_home_second:
                 finish();
@@ -104,22 +88,33 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
         }
     }
 
-    private void initDialogViews(View v) {
-        gvShare = (GridView) v.findViewById(R.id.gv_share);
+    private void showShare() {
 
-        ShareBean shareBean = new ShareBean();
-        Log.d("BrowserHomeDetailSecond", "shareBean.getIcons().length:" + shareBean.getIcons().length);
-        ShareAdapter shareAdapter = new ShareAdapter(MyApp.getContext());
-        shareAdapter.setMaps(shareBean);
-        gvShare.setAdapter(shareAdapter);
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+//关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+// title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitle("myFoodPie");
+// titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl("http://sharesdk.cn");
+// text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+//oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+// url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://sharesdk.cn");
+// comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+// site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+// siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://sharesdk.cn");
+
+// 启动分享GUI
+        oks.show(this);
     }
 
-    private void initDialogOnClickListener() {
-        gvShare.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-            }
-        });
-    }
 }

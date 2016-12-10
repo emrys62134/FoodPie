@@ -26,6 +26,8 @@
             android:layout_weight="1"
             android:padding="10dp"
             android:text="标题"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textSize="18sp" />
 
 

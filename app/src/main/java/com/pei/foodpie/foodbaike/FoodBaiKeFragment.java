@@ -10,7 +10,7 @@ import android.widget.GridView;
 
 import com.android.volley.VolleyError;
 import com.pei.foodpie.R;
-import com.pei.foodpie.activity.SearchActivity;
+import com.pei.foodpie.foodbaike.search.SearchActivity;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.activity.FoodBaiKeDetailActivity;
