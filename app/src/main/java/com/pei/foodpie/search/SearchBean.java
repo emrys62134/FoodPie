@@ -1,4 +1,4 @@
-package com.pei.foodpie.foodbaike.search;
+package com.pei.foodpie.search;
 
 import java.util.List;
 

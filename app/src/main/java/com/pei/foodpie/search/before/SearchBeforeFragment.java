@@ -1,4 +1,4 @@
-package com.pei.foodpie.foodbaike.search;
+package com.pei.foodpie.search.before;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,20 +9,19 @@ import com.pei.foodpie.base.BaseFragment;
 /**
  * Created by dllo on 16/12/10.
  */
+
 public class SearchBeforeFragment extends BaseFragment {
 
-    private RecyclerView rv;
-    private SearchBeforeAdapter beforeAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected int setLayout() {
-        return R.layout.fragment_before_search;
+        return R.layout.fragment_search_before;
     }
 
     @Override
     protected void initView(View view) {
-        rv = bindView(R.id.rv_search_before);
-        beforeAdapter = new SearchBeforeAdapter();
+        recyclerView = bindView(R.id.rv_search_before);
     }
 
     @Override
