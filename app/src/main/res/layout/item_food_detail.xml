@@ -6,15 +6,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
+        android:layout_height="@dimen/fifty"
+        android:layout_margin="@dimen/five"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/icon_detail"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            style="@style/WidthZeroAndHeightMatchWeightOne"
             android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
@@ -25,28 +23,22 @@
 
             <TextView
                 android:id="@+id/title_detail"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/WidthMatchAndHeightZeroWeightOne"
                 android:maxLines="1"
                 android:ellipsize="middle"
                 android:text="@string/test"/>
 
             <TextView
                 android:id="@+id/content_detail"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/WidthMatchAndHeightZeroWeightOne"
                 android:text="@string/test"/>
 
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/dot_detail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/WidthZeroAndHeightWrapWeightOne"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
             android:src="@mipmap/ic_food_light_green"/>
 
     </LinearLayout>

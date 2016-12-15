@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,16 +31,18 @@ import com.pei.foodpie.base.BaseActivity;
 
 import com.pei.foodpie.utils.MyClickListener;
 import com.pei.foodpie.utils.NetListener;
+import com.pei.foodpie.utils.RightPopClickListener;
 import com.pei.foodpie.utils.ThirdClickListener;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dllo on 16/12/2.
  */
-public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClickListener, MyClickListener, ThirdClickListener {
+public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClickListener, MyClickListener, ThirdClickListener, RightPopClickListener {
 
 
     // 上拉加载网址拼接
@@ -80,11 +83,12 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
     // 页数
     private int i = 1;
     private SubValuesAdapter subValuesAdapter;
-    private ArrayList<String> arrayList;
+    private List<String> arrayList;
     // 食物分类详情页 右侧popup id
     private int subId;
     // 食物分类详情页 右侧popup id 对应的网址
     private String rightPopUrl;
+    private String pageId;
 
 
     @Override
@@ -128,7 +132,6 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
     }
 
 
-
     private void initViews() {
 
         rv = bindView(R.id.rv_detail_food);
@@ -141,7 +144,6 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
 
         orderBtn.setOnClickListener(this);
         previous.setOnClickListener(this);
-
 
 
     }
@@ -229,46 +231,9 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
         rightPop.setOutsideTouchable(true);
         rightList.setAdapter(subValuesAdapter);
         rightPop.showAsDropDown(tvAll);
-
-//        rightList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                if (i == 0){
-//
-//                }else {
-//                    rightPopUrl = Constant.FOOD_KIND_URL + category + Constant.FOOD_GRID_POSITION_URL + id
-//                            +Constant.FOOD_DETAIL_RIGHT_POP_VALUE_URL+(subId)+Constant.FOOD_DETAIL_ORDER_BY_PAGE_URL
-//                            + (i) + Constant.FOOD_DETAIL_TAIL;
-//                    getRightPopMapNetData();
-//                }
-//            }
-//        });
-
+        subValuesAdapter.setClickListener(this);
 
     }
-
-//    private void getRightPopMapNetData() {
-//        VolleySingleton.MyRequest(rightPopUrl, DetailBean.class, new NetListener<DetailBean>() {
-//            @Override
-//            public void successListener(DetailBean response) {
-//                DetailBean data = response;
-//                if (detailBean == null){
-//                    detailBean = data;
-//                }else {
-//                    for (int j = 0; j < data.getFoods().size() ; j++) {
-//                        detailBean.getFoods().add(data.getFoods().get(j));
-//                    }
-//                }
-//                adapter.setBean(detailBean);
-//            }
-//
-//            @Override
-//            public void errorListener(VolleyError error) {
-//
-//            }
-//        });
-//
-//    }
 
 
     // 获取从主页传过来的数据
@@ -294,7 +259,7 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
 
             for (int j = 0; j < bean.getGroup().get(0).getCategories().get(id - 1).getSub_categories().size(); j++) {
                 arrayList.add(bean.getGroup().get(0).getCategories().get(id - 1).getSub_categories().get(j).getName());
-                subId = bean.getGroup().get(0).getCategories().get(id-1).getSub_categories().get(j).getId();
+                subId = bean.getGroup().get(0).getCategories().get(id - 1).getSub_categories().get(j).getId();
 
             }
         }
@@ -309,7 +274,7 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
         rv.setLinearLayout();
         rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
-        //TODO
+
         adapter.setThirdClickListener(this);
 
         rv.setPullRefreshEnable(false);
@@ -362,6 +327,8 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
     public void onClickListener(int position, String data) {
         String orderByNewUrl = Constant.FOOD_KIND_URL + category + Constant.FOOD_GRID_POSITION_URL + id
                 + Constant.FOOD_DETAIL_ORDER_BY_URL + data;
+
+        pageId = data;
         VolleySingleton.MyRequest(orderByNewUrl, DetailBean.class, new NetListener<DetailBean>() {
             @Override
             public void successListener(DetailBean response) {
@@ -380,9 +347,18 @@ public class FoodBaiKeDetailActivity extends BaseActivity implements View.OnClic
 
     @Override
     public void onClickSendBean(int position, DetailBean bean) {
-        Intent intent = new Intent(FoodBaiKeDetailActivity.this,FoodBaiKeSecondActivity.class);
-        intent.putExtra("detailBean",bean);
-        intent.putExtra("position",position);
+        Intent intent = new Intent(FoodBaiKeDetailActivity.this, FoodBaiKeSecondActivity.class);
+        intent.putExtra("detailBean", bean);
+        intent.putExtra("position", position);
         startActivity(intent);
+    }
+
+    @Override
+    public void onMyClickListener(int positions, String data) {
+//        String lvPopUrl = Constant.FOOD_KIND_URL + category + Constant.FOOD_GRID_POSITION_URL + id +
+//                Constant.FOOD_DETAIL_RIGHT_POP_VALUE_URL + subId + Constant.FOOD_DETAIL_ORDER_BY_PAGE_URL
+//                + pageId + Constant.FOOD_DETAIL_TAIL;
+
+
     }
 }

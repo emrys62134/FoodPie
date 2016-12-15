@@ -4,9 +4,8 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="10dp"
+        style="@style/WidthAndHeightMatch"
+        android:dividerHeight="@dimen/ten"
         android:id="@+id/lv_browser_knowledge">
 
     </ListView>

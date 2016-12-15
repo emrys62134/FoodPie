@@ -1,10 +1,8 @@
 <resources>
-    <string name="app_name">FoodPie</string>
+    <string name="app_name">食物派</string>
     <string name="food_bai_ke">食物百科</string>
     <string name="browser_food">逛吃</string>
     <string name="my">我的</string>
-
-
     <string name="my_photo">我的照片</string>
     <string name="my_collection">我的收藏</string>
     <string name="my_upload_data">上传食物数据</string>
@@ -28,12 +26,25 @@
     <string name="wei_chat">微信好友</string>
     <string name="wei_member">微信朋友圈</string>
     <string name="qq_zone">QQ空间</string>
-
+    <string name="username">用户名</string>
+    <string name="last_search">最近搜索</string>
+    <string name="clear_history">清空历史记录</string>
+    <string name="query_food_info">查询食物信息</string>
+    <string name="input_food_name">请输入食物名称</string>
+    <string name="food_analysis">饮食分析</string>
+    <string name="search_compare">搜索对比</string>
+    <string name="scan_compare">扫码对比</string>
+    <string name="food_category">食物分类</string>
+    <string name="hot_brand">热门品牌</string>
+    <string name="restaurant">餐饮连锁</string>
+    <string name="nutrition_order">营养素排序</string>
+    <string name="news_detail">资讯详情</string>
+    <string name="shared">分享</string>
+    <string name="collection">收藏</string>
+    <string name="have_a_dream">梦画-睡个好觉, 画个好梦</string>
 
 
     <!--测试使用-->
-    <string name="cover">覆盖</string>
-    <string name="water">水电费</string>
     <string name="test">测试</string>
 
 </resources>

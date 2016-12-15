@@ -19,9 +19,6 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
 public class BrowserHomeDetailSecondActivity extends BaseActivity implements View.OnClickListener {
 
 
-    private GridView gvShare;
-
-
     @Override
     protected int setLayout() {
         return R.layout.activity_home_detail_second;
@@ -74,21 +71,6 @@ public class BrowserHomeDetailSecondActivity extends BaseActivity implements Vie
                 finish();
                 break;
             case R.id.share_detail_home_second:
-//                BottomDialog.create(getSupportFragmentManager()).setViewListener(new BottomDialog.ViewListener() {
-//                    @Override
-//                    public void bindView(View v) {
-//
-//                            // 初始化分享控件
-//                            initDialogViews(v);
-//                            // 给分享item设置监听
-//                            initDialogOnClickListener();
-//
-//
-//
-//                        // TODO
-//                    }
-//
-//                }).setLayoutRes(R.layout.share_layout).show();
                 showShare();
                 break;
 
@@ -123,24 +105,7 @@ public class BrowserHomeDetailSecondActivity extends BaseActivity implements Vie
         oks.show(this);
     }
 
-//    private void initDialogViews(View v) {
-//        gvShare = (GridView) v.findViewById(R.id.gv_share);
-//
-//        ShareBean shareBean = new ShareBean();
-//        Log.d("BrowserHomeDetailSecond", "shareBean.getIcons().length:" + shareBean.getIcons().length);
-//        ShareAdapter shareAdapter = new ShareAdapter(MyApp.getContext());
-//        shareAdapter.setMaps(shareBean);
-//        gvShare.setAdapter(shareAdapter);
-//    }
-//
-//    private void initDialogOnClickListener() {
-//        gvShare.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            }
-//        });
-//    }
+
 
 
 }

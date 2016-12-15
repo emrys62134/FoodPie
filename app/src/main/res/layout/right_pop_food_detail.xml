@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#fafafa">
+    android:background="@color/color_title">
 
     <ListView
         android:id="@+id/lv_pop_right_food_detail"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/one_hundred"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="15sp"/>
+        android:layout_margin="@dimen/five"
+        android:textSize="@dimen/fifteen"/>
 
 
 

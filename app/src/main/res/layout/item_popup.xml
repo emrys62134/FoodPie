@@ -5,9 +5,8 @@
     >
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fafafa"
+       style="@style/WidthMatchAndHeightWrap"
+        android:background="@color/color_title"
         android:id="@+id/left_pop_rv">
 
     </android.support.v7.widget.RecyclerView>

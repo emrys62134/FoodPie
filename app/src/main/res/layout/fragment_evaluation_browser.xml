@@ -12,7 +12,7 @@
         android:id="@id/swipe_refresh_header"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_height="100dp" />
+        android:layout_height="@dimen/one_hundred" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@id/swipe_target"
@@ -24,6 +24,6 @@
         android:id="@id/swipe_load_more_footer"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_height="100dp" />
+        android:layout_height="@dimen/one_hundred" />
 
 </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>

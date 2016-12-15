@@ -6,10 +6,10 @@
     <TextView
         android:id="@+id/tv_item_left_pop"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="@dimen/thirty"
         android:gravity="center_vertical"
         android:layout_gravity="center_horizontal"
-        android:text="测试"
-        android:textColor="#545252"/>
+        android:text="@string/test"
+        android:textColor="@color/text_color"/>
 
 </LinearLayout>

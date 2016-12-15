@@ -6,20 +6,19 @@
 
     <com.pei.foodpie.customrefresh.RefreshHeaderView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/one_hundred"
         android:gravity="center"
         android:id="@id/swipe_refresh_header"/>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/WidthAndHeightMatch"
         android:id="@id/swipe_target">
 
     </android.support.v7.widget.RecyclerView>
 
     <com.pei.foodpie.customrefresh.LoadMoreFooterView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/one_hundred"
         android:gravity="center"
         android:id="@id/swipe_load_more_footer"/>
 

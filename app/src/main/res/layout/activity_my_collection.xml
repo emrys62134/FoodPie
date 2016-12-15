@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_my_collection"
+            style="@style/WidthZeroAndHeightMatchWeightOne"
+            android:scaleType="center"
+            android:src="@mipmap/ic_back_dark_center" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:text="@string/my_collection" />
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/DivideLine"/>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tab_my_collection">
+
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp_my_collection">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

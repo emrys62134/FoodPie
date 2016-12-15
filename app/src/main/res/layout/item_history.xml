@@ -6,24 +6,22 @@
 
     <ImageView
         android:id="@+id/img_history"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="@dimen/fifteen"
         android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/WidthAndHeightWrap"
         android:src="@mipmap/ic_search_history"/>
 
     <TextView
         android:id="@+id/tv_history"
-        android:layout_marginLeft="6dp"
+        android:layout_marginLeft="@dimen/five"
         android:layout_toRightOf="@id/img_history"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        style="@style/WidthAndHeightWrap" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="50dp"
-        android:background="#000000"
+        android:layout_height="@dimen/view_height"
+        android:layout_marginLeft="@dimen/fifty"
+        android:background="@color/color_normal"
         android:layout_alignParentBottom="true"
         />
 

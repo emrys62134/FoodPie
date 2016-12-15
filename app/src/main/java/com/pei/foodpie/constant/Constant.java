@@ -10,7 +10,6 @@ public class Constant {
 
     public static final String FOOD_KIND_URL = "http://food.boohee.com/fb/v1/foods?kind=";
 
-//    http://food.boohee.com/fb/v1/foods?kind=group&value=1(&sub_value=13)&order_by=1&page=1&order_asc=0
     public static final String FOOD_GRID_POSITION_URL = "&value=";
 
     public static final String FOOD_DETAIL_ORDER_BY_URL = "&order_by=";
@@ -23,10 +22,13 @@ public class Constant {
 
     public static final String FOOD_DETAIL_TAIL = "&order_asc=0";
 
-    public static final String FOOD_SEARCH_BEFORE = "http://food.boohee.com/fb/v1/keywords?token=&user_key=&app_version=2.6";
+    public static final String FOOD_SEARCH_RV = "http://food.boohee.com/fb/v1/keywords?token=&user_key=&app_version=2.6";
 
+    public static final String FOOD_SEARCH_LV = "http://food.boohee.com/fb/v1/search?page=1&order_asc=desc&q=";
 
+    public static final String FOOD_SEARCH_AFTER_LV_FIRST = "http://food.boohee.com/fb/v1/search?page=";
 
+    public static final String FOOD_SEARCH_AFTER_LV_SECOND = "&order_asc=desc&q=";
 
     // 逛吃:
     // 1,首页

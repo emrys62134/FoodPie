@@ -28,12 +28,10 @@ public class FoodBaiKeSecondActivity extends BaseActivity {
     }
 
 
-
     @Override
     protected void initView() {
         initViews();
         getIntentData();
-
 
 
     }
@@ -41,7 +39,7 @@ public class FoodBaiKeSecondActivity extends BaseActivity {
     private void getIntentData() {
         Intent intent = getIntent();
         bean = intent.getParcelableExtra("detailBean");
-        position = intent.getIntExtra("position",0);
+        position = intent.getIntExtra("position", 0);
 
         title.setText(bean.getFoods().get(position).getName());
     }
@@ -49,9 +47,6 @@ public class FoodBaiKeSecondActivity extends BaseActivity {
     private void initViews() {
         back = bindView(R.id.back_third);
         title = bindView(R.id.title_third);
-
-
-
 
 
         back.setOnClickListener(new View.OnClickListener() {

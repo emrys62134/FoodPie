@@ -18,7 +18,7 @@
             android:src="@mipmap/ic_back_dark_center"/>
 
         <TextView
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login"

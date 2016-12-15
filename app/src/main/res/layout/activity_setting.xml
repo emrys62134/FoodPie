@@ -139,6 +139,14 @@
         android:layout_height="@dimen/view_height"
         android:background="@color/line"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出"
+        android:background="@null"
+        android:id="@+id/logout"/>
+
+
     <TextView
         style="@style/WidthAndHeightWrap"
         android:text="@string/version"

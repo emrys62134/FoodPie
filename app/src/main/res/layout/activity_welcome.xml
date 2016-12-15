@@ -15,9 +15,9 @@
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试"
-        android:layout_margin="20dp"
-        android:textSize="20sp"
+        android:text="@string/test"
+        android:layout_margin="@dimen/twenty"
+        android:textSize="@dimen/twenty_size"
         android:visibility="invisible"
         android:layout_alignParentRight="true"/>
 

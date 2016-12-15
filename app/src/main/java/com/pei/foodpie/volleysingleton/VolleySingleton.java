@@ -1,5 +1,7 @@
 package com.pei.foodpie.volleysingleton;
 
+import android.widget.ImageView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -116,5 +118,9 @@ public class VolleySingleton {
 
     public static <T> void MyRequest(String url, Class<T> mClass, NetListener<T> listener, HashMap<String, String> map) {
         getInstance().baseGsonPostRequest(url, mClass, listener, map);
+    }
+
+    public void getImage(String icon, ImageView iconMy) {
+
     }
 }

@@ -1,74 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
+        android:layout_height="@dimen/two_hundred"
+        android:layout_marginLeft="@dimen/twenty"
+        android:layout_marginRight="@dimen/twenty"
+        android:layout_marginTop="@dimen/twenty">
 
         <ImageView
             android:id="@+id/iv_evaluation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/WidthAndHeightMatch"
             android:background="@mipmap/img_home_bg"
-            android:scaleType="fitXY"
-            />
+            android:scaleType="fitXY" />
+
         <TextView
             android:id="@+id/title_evaluation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/就知道吃/"
+            style="@style/WidthAndHeightWrap"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:textColor="#ffffff"
-            android:textSize="12sp"/>
+            android:layout_marginTop="@dimen/twenty"
+            android:text="@string/test"
+            android:textColor="@color/my_button_line"
+            android:textSize="@dimen/twelve" />
 
         <TextView
             android:id="@+id/desc_evaluation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="是东风科技老司机地方第三方士大夫水电费"
+            style="@style/WidthAndHeightWrap"
             android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
-            android:textColor="#ffffff"
-            android:textSize="15sp"/>
+            android:layout_marginTop="@dimen/twenty"
+            android:gravity="center"
+            android:text="@string/test"
+            android:textColor="@color/my_button_line"
+            android:textSize="@dimen/fifteen_size" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/WidthAndHeightWrap"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="@dimen/twenty"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="bottom"
-                android:src="@mipmap/ic_read"/>
+                android:paddingLeft="@dimen/five"
+                android:src="@mipmap/ic_read" />
 
             <TextView
                 android:id="@+id/count_evaluation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:gravity="center"
-                android:text="为丁克"
+                style="@style/WidthAndHeightWrap"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="20dp"
-                android:textColor="#ffffff"
-                android:textSize="12sp"/>
+                android:layout_marginLeft="@dimen/five"
+                android:layout_marginTop="@dimen/twenty"
+                android:gravity="center"
+                android:text="@string/test"
+                android:textColor="@color/my_button_line"
+                android:textSize="@dimen/twelve" />
 
         </LinearLayout>
-
 
 
     </RelativeLayout>

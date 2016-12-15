@@ -1,26 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <include
-        layout="@layout/activity_search_top"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_back_dark_center"/>
+
+        <EditText
+            android:id="@+id/et_input_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:hint="请输入食物名称"/>
+
+        <ImageView
+            android:id="@+id/iv_clear_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_clear"/>
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_search"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/DivideLine"/>
 
 
-    <View style="@style/DivideLine" />
+        <com.pei.foodpie.search.MyListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/lv_search">
+
+        </com.pei.foodpie.search.MyListView>
 
 
-    <FrameLayout
-        android:id="@+id/frame_search"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="30dp"
+        android:text="大家都在搜"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"/>
 
-    </FrameLayout>
+    <View
+        style="@style/DivideLine"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_search">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

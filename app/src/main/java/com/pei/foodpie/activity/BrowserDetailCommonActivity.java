@@ -1,6 +1,7 @@
 package com.pei.foodpie.activity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -8,9 +9,16 @@ import android.webkit.WebViewClient;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseActivity;
+import com.pei.foodpie.dbtool.CollectionBean;
+import com.pei.foodpie.dbtool.DBTool;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -32,6 +40,11 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
     private LinearLayout share;
     private ImageView back;
     private GridView gvShare;
+    private ImageView ivCollect;
+    private TextView tvCollect;
+    private boolean flag = true;
+    private List<CollectionBean> list;
+    private String title;
 
     @Override
     protected int setLayout() {
@@ -43,27 +56,51 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
         initViews();
 
     }
+
     @Override
     protected void initData() {
+
+
+        if (DBTool.getInstance().isSavaTitle(title)) {
+            flag = false;
+        }
+
         ShareSDK.initSDK(this);
         getNetData(url);
+        if (DBTool.getInstance().isSava(url, title)) {
+            ivCollect.setImageResource(R.mipmap.ic_news_keep_heighlight);
+            tvCollect.setText("已收藏");
+        } else {
+            ivCollect.setImageResource(R.mipmap.ic_news_keep_default);
+            tvCollect.setText("收藏");
+        }
     }
 
     private void initViews() {
         Intent intent = getIntent();
         url = intent.getStringExtra("data");
 
+        title = intent.getStringExtra("title");
+
+
         share = bindView(R.id.ll_share);
         back = bindView(R.id.back_detail_home_second);
         webView = (WebView) findViewById(R.id.web_delicious);
+        LinearLayout ll = bindView(R.id.ll_collection_browser_detail);
+        ivCollect = bindView(R.id.iv_collect_browser_detail);
+        tvCollect = bindView(R.id.tv_collect_browser_detail);
+
 
         share.setOnClickListener(this);
         back.setOnClickListener(this);
+        ll.setOnClickListener(this);
 
 
     }
 
     private void getNetData(String url) {
+
+
         webViewClient = new WebViewClient();
         webView.setWebViewClient(webViewClient);
         webSettings = webView.getSettings();
@@ -73,17 +110,51 @@ public class BrowserDetailCommonActivity extends BaseActivity implements View.On
 
 
         webView.loadUrl(url);
+
+
     }
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.ll_share:
-
                 showShare();
                 break;
             case R.id.back_detail_home_second:
                 finish();
+                break;
+            case R.id.ll_collection_browser_detail:
+
+
+                if (flag) {
+                    flag = !flag;
+
+                    ivCollect.setImageResource(R.mipmap.ic_news_keep_heighlight);
+                    tvCollect.setText("已收藏");
+                    CollectionBean collectionBean = new CollectionBean();
+                    list = new ArrayList<>();
+
+                    collectionBean.setUrl(url);
+                    collectionBean.setTitle(title);
+                    list.add(collectionBean);
+
+                    DBTool.getInstance().insertList(list);
+
+
+
+
+                } else {
+                    flag = !flag;
+                    ivCollect.setImageResource(R.mipmap.ic_news_keep_default);
+                    tvCollect.setText("收藏");
+                    DBTool.getInstance().deleteBy(title);
+                    DBTool.getInstance().deleteByUrl(url);
+
+
+
+                }
+
+
                 break;
         }
     }

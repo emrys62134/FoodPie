@@ -81,7 +81,9 @@ public class DeliciousFragment extends BaseFragment implements OnRefreshListener
                 Intent intent = new Intent(getActivity(), BrowserDetailCommonActivity.class);
 
                 intent.putExtra("data", bean.getFeeds().get(i).getLink());
-
+                if (bean.getFeeds().get(i).getTitle()!=null){
+                    intent.putExtra("title",bean.getFeeds().get(i).getTitle());
+                }
 
                 startActivity(intent);
 

@@ -92,6 +92,7 @@ public class EvaluationFragment extends BaseFragment implements ClickListener, O
     public void onClickListener(int position) {
         Intent intent = new Intent(getActivity(), BrowserDetailCommonActivity.class);
         intent.putExtra("data", detail.getFeeds().get(position).getLink());
+        intent.putExtra("title",detail.getFeeds().get(position).getTitle());
         startActivity(intent);
 
     }

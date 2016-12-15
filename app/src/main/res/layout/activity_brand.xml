@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/WidthAndHeightMatch"
         android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
+            android:layout_height="@dimen/forty"
+            android:layout_margin="@dimen/ten"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_arrow_left_default" />
 
             <TextView
                 android:id="@+id/title_detail_brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:text="标题"
-                android:textSize="18sp" />
-
+                android:layout_marginLeft="@dimen/five"
+                android:text="@string/test"
+                android:textSize="@dimen/eighteen_size" />
 
 
         </LinearLayout>
@@ -38,21 +35,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
+            android:layout_height="@dimen/thirty"
+            android:layout_margin="@dimen/ten"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
-                android:text="营养素排序" />
+                android:text="@string/nutrition_order" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="@dimen/five"
                 android:src="@mipmap/ic_food_arrow_ordering" />
 
         </LinearLayout>
@@ -61,10 +56,10 @@
 
         <ListView
             android:id="@+id/lv_detail_brand"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/WidthAndHeightMatch"
+            android:dividerHeight="@dimen/view_height">
 
-            android:dividerHeight="1dp"></ListView>
+        </ListView>
 
 
     </LinearLayout>

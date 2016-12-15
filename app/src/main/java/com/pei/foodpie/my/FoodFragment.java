@@ -1,16 +1,17 @@
-package com.pei.foodpie.search.after;
+package com.pei.foodpie.my;
 
 import android.view.View;
 
+import com.pei.foodpie.R;
 import com.pei.foodpie.base.BaseFragment;
 
 /**
- * Created by dllo on 16/12/10.
+ * Created by dllo on 16/12/13.
  */
-public class SearchAfterFragment extends BaseFragment{
+public class FoodFragment extends BaseFragment {
     @Override
     protected int setLayout() {
-        return 0;
+        return R.layout.fragment_food_my;
     }
 
     @Override

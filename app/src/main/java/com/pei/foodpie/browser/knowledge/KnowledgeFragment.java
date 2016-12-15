@@ -12,10 +12,12 @@ import com.aspsine.swipetoloadlayout.OnLoadMoreListener;
 import com.aspsine.swipetoloadlayout.OnRefreshListener;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.pei.foodpie.R;
+import com.pei.foodpie.activity.MainActivity;
 import com.pei.foodpie.base.BaseFragment;
 import com.pei.foodpie.activity.BrowserDetailCommonActivity;
 import com.pei.foodpie.constant.Constant;
 import com.pei.foodpie.utils.NetListener;
+import com.pei.foodpie.volleysingleton.MyApp;
 import com.pei.foodpie.volleysingleton.VolleySingleton;
 
 /**
@@ -77,8 +79,11 @@ public class KnowledgeFragment extends BaseFragment implements OnRefreshListener
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), BrowserDetailCommonActivity.class);
+                Intent intent = new Intent(getContext(), BrowserDetailCommonActivity.class);
                 intent.putExtra("data", detail.getFeeds().get(i).getLink());
+                if (detail.getFeeds().get(i).getTitle()!= null) {
+                    intent.putExtra("title", detail.getFeeds().get(i).getTitle());
+                }
                 startActivity(intent);
 
 

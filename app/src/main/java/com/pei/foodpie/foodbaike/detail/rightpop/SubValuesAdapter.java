@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.pei.foodpie.R;
 import com.pei.foodpie.foodbaike.FoodBaiKeBean;
+import com.pei.foodpie.utils.MyClickListener;
+import com.pei.foodpie.utils.RightPopClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +22,20 @@ import java.util.List;
 
 public class SubValuesAdapter extends BaseAdapter {
 
-    private ArrayList<String> arrayList;
+    private List<String> arrayList;
     private Context mContext;
+    private RightPopClickListener clickListener;
+
+    public void setClickListener(RightPopClickListener clickListener) {
+        this.clickListener = clickListener;
+        notifyDataSetChanged();
+    }
 
     public SubValuesAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
-    public void setArrayList(ArrayList<String> arrayList) {
+    public void setArrayList(List<String> arrayList) {
         this.arrayList = arrayList;
         notifyDataSetChanged();
     }
@@ -48,7 +56,7 @@ public class SubValuesAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder = null;
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_right_popup, null);
@@ -61,9 +69,10 @@ public class SubValuesAdapter extends BaseAdapter {
         viewHolder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                clickListener.onMyClickListener(i,arrayList.get(i));
             }
         });
+
         return view;
     }
 

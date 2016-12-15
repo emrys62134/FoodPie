@@ -8,52 +8,45 @@
 
     <LinearLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/WidthAndHeightMatch"
         android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/fifty"
             android:orientation="horizontal">
 
             <ImageView
-                android:padding="10dp"
                 android:id="@+id/back_detail_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
+                android:padding="@dimen/ten"
                 android:src="@mipmap/ic_back_dark_center" />
 
             <TextView
-                android:padding="10dp"
                 android:id="@+id/title_detail_food"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
+                style="@style/WidthZeroAndHeightWrapWeightOne"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:text="标题"
-                android:textSize="18sp" />
+                android:layout_marginLeft="@dimen/five"
+                android:padding="@dimen/ten"
+                android:text="@string/test"
+                android:textSize="@dimen/eighteen_size" />
 
             <TextView
-                android:padding="10dp"
                 android:id="@+id/tv_all_right_pop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
                 android:gravity="end"
-                android:textSize="18sp" />
+                android:padding="@dimen/ten"
+                android:textSize="@dimen/eighteen_size" />
 
             <ImageView
-                android:padding="10dp"
                 android:id="@+id/iv_all_right_pop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                />
+                android:layout_marginLeft="@dimen/five"
+                android:padding="@dimen/ten" />
 
         </LinearLayout>
 
@@ -61,29 +54,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/forty"
+            android:orientation="horizontal"
+            android:padding="@dimen/ten">
 
             <Button
                 android:id="@+id/order_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
+                style="@style/WidthAndHeightWrap"
                 android:layout_gravity="center_vertical"
-                android:text="营养素排序" />
+                android:background="@null"
+                android:text="@string/nutrition_order" />
 
             <ImageView
                 android:id="@+id/iv_order_arrow_down"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/WidthZeroAndHeightWrapWeightOne"
                 android:layout_gravity="center_vertical"
-                android:paddingRight="150dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/five"
+                android:paddingRight="@dimen/one_hundred_and_fifty"
                 android:src="@mipmap/ic_food_arrow_ordering" />
-
-
 
 
         </LinearLayout>
@@ -92,9 +80,8 @@
 
 
         <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rv_detail_food">
+            android:id="@+id/rv_detail_food"
+            style="@style/WidthAndHeightMatch">
 
         </com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
 

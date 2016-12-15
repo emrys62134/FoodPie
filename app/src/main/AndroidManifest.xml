@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,11 +53,15 @@
 
         <activity android:name=".activity.FoodBaiKeDetailActivity"/>
 
-        <activity android:name=".activity.WelcomeActivity"/>
-
-        <activity android:name=".foodbaike.search.SearchActivity"/>
+        <activity android:name=".activity.MainActivity"/>
 
         <activity android:name=".activity.FoodBaiKeSecondActivity"/>
+
+        <activity android:name=".search.SearchActivity"/>
+
+        <activity android:name=".search.SearchDetailActivity"/>
+
+        <activity android:name=".my.MyCollectionActivity"/>
 
         <activity
             android:name="com.mob.tools.MobUIShell"

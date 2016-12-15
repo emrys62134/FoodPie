@@ -18,6 +18,8 @@
     <color name="my_arrow_background">#fafafa</color>
     <color name="my_button_line">#ffffff</color>
     <color name="line">#bab7b7</color>
+    <color name="text_color">#545252</color>
+
 
 </resources>
 
